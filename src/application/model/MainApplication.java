@@ -1,4 +1,4 @@
-package src.application.model;
+package application.model;
 
 
 import java.io.IOException;
@@ -51,7 +51,7 @@ public class MainApplication extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApplication.class.getResource("/src/application/model/view/PrimaryStage.fxml"));
+            loader.setLocation(MainApplication.class.getResource("/application/model/view/PrimaryStage.fxml"));
             rootLayout = loader.load();
 
             // Show the scene containing the root layout.
