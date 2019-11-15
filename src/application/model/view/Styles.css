@@ -6,6 +6,7 @@
 .label2 {
     -fx-font-weight: bold;
     -fx-text-fill: white;
+    -text-decoration: underline;
 }
 
 .label {
@@ -17,6 +18,21 @@
     -fx-background-radius: 2 ;
 }
 
+.button-answer {
+    -fx-background-color: lightgrey;
+    -fx-border-color: white;
+    -fx-text-fill: black;
+    -fx-background-radius: 2;
+    -fx-text-alignment: center;
+    -fx-font-size: 14pt;
+}
+
+.button-question {
+    -fx-text-fill: black;
+    -fx-background-radius: 2;
+    -fx-font-size: 18pt;
+}
+
 .menubar {
     -fx-text-fill: black;
 
@@ -25,3 +41,8 @@
     -fx-text-fill: black;
     -fx-border-color: lightgrey;
 }
+
+.column-header {
+    -fx-font-size: 14pt;
+}
+
