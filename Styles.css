@@ -1,0 +1,27 @@
+.root {
+    -fx-background-color: #585858;
+    -fx-font-size: 11pt;
+ }
+
+.label2 {
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: lightgrey;
+    -fx-background-radius: 2 ;
+}
+
+.menubar {
+    -fx-text-fill: black;
+
+}
+.menu-item {
+    -fx-text-fill: black;
+    -fx-border-color: lightgrey;
+}
