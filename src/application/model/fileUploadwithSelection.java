@@ -1,4 +1,4 @@
-package src.fileUpload;
+package src.application.model;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
