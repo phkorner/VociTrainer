@@ -11,9 +11,7 @@ import java.io.File;
 public class fileUploadWithSelection extends Component {
     private static Component parent;
 
-    public static void main(String[] args){}
-
-    public void fileUploadWithSelection(){
+      public void fileUploadWithSelection(){
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "Select Access File", "accdb");
