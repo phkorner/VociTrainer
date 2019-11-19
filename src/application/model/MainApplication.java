@@ -13,6 +13,10 @@ public class MainApplication extends Application {
 
     private Stage primaryStage;
     private AnchorPane rootLayout;
+    private String correctAnswer;
+    private String wrongAnswer1;
+    private String wrongAnswer2;
+    private String wrongAnswer3;
 
     /*
      * main method to launch primary stage

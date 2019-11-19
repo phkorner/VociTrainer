@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="513.0" prefWidth="600.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="513.0" prefWidth="600.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Pane prefHeight="513.0" prefWidth="600.0" styleClass="background" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -81,7 +81,7 @@
                   <Label alignment="BOTTOM_LEFT" layoutX="106.0" layoutY="434.0" styleClass="column-header" text="Max. Points" />
             <ImageView fitHeight="40.0" fitWidth="63.0" layoutX="545.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../account_friend_human_man_member_person_profile_user_users-512.png" />
+                  <Image url="@../account_friend_human_man_member_person_profile_user_users-512.png" />
                </image>
             </ImageView>
             <Circle fill="#dfe0cc" layoutX="130.0" layoutY="262.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" styleClass="button-question" />
