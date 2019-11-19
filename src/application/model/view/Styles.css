@@ -1,7 +1,7 @@
 .root {
     -fx-background-color: #585858;
     -fx-font-size: 11pt;
- }
+}
 
 .label2 {
     -fx-font-weight: bold;
@@ -24,7 +24,7 @@
     -fx-text-fill: black;
     -fx-background-radius: 2;
     -fx-text-alignment: center;
-    -fx-font-size: 14pt;
+    -fx-font-size: 11pt;
 }
 
 .button-question {
@@ -35,11 +35,10 @@
 
 .menubar {
     -fx-text-fill: black;
-
 }
 .menu-item {
     -fx-text-fill: black;
-    -fx-border-color: lightgrey;
+    -fx-background-color: #585858;
 }
 
 .column-header {

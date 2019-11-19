@@ -8,11 +8,12 @@ import java.io.File;
 
 
 
-public class fileUploadwithSelection extends Component {
+public class fileUploadWithSelection extends Component {
     private static Component parent;
 
-    public static void main(String[] args){
+    public static void main(String[] args){}
 
+    public void fileUploadWithSelection(){
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "Select Access File", "accdb");

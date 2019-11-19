@@ -6,9 +6,11 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class fileDownloadwithSelection extends Component {
+public class fileDownloadWithSelection extends Component {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {}
+
+    public void fileDownloadWithSelection(){
 
         JFrame parentFrame = new JFrame();
 
