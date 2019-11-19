@@ -31,6 +31,7 @@
     -fx-text-fill: black;
     -fx-background-radius: 2;
     -fx-font-size: 18pt;
+    -fx-background-color: #f5b55b;
 }
 
 .menubar {
