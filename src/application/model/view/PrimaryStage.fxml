@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="513.0" prefWidth="600.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.Controller">
+<AnchorPane prefHeight="513.0" prefWidth="600.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.Controller">
     <children>
         <Pane prefHeight="513.0" prefWidth="600.0" styleClass="background" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -43,10 +43,10 @@
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal1" GridPane.rowIndex="2" />
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal2" GridPane.rowIndex="4" />
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal3" GridPane.rowIndex="6" />
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal4" GridPane.rowIndex="8" />
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal1" GridPane.rowIndex="2" fx:id="proposal1" onAction="#handleclick1"/>
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal2" GridPane.rowIndex="4" fx:id="proposal2" onAction="#handleclick2"/>
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal3" GridPane.rowIndex="6" fx:id="proposal3" onAction="#handleclick3"/>
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal4" GridPane.rowIndex="8" fx:id="proposal4" onAction="#handleclick4"/>
                     </children>
                 </GridPane>
                 <ProgressBar layoutX="300.0" layoutY="465.0" prefHeight="18.0" prefWidth="250.0" progress="0.0" />
