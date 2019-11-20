@@ -10,22 +10,18 @@ public class Controller {
     public Button proposal4;
 
     public void handleclick1(){
-        System.out.println("well done");
         proposal1.setText("test");
     }
 
     public void handleclick2(){
-        System.out.println("well done");
         proposal2.setText("test");
     }
 
     public void handleclick3(){
-        System.out.println("well done");
         proposal3.setText("test");
     }
 
     public void handleclick4(){
-        System.out.println("well done");
         proposal4.setText("test");
     }
 }
