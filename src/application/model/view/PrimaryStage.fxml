@@ -86,7 +86,7 @@
             <Label layoutX="16.0" layoutY="87.0" styleClass="column-header" text="Your course: " />
             <Label layoutX="152.0" layoutY="90.0" prefHeight="21.0" prefWidth="230.0" text="CourseDescription" />
             <Separator layoutY="421.0" prefHeight="6.0" prefWidth="600.0" />
-            <ImageView fitHeight="40.0" fitWidth="63.0" layoutX="546.0" layoutY="14.0" onMouseClicked="#userlogin" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="63.0" layoutX="546.0" layoutY="14.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../account_friend_human_man_member_person_profile_user_users-512.png" />
                </image>

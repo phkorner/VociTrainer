@@ -1,11 +1,6 @@
 package src.application.model.view;
 
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
-import javafx.stage.Window;
-import src.application.model.MainApplication;
-import sun.applet.Main;
 
 public class Controller {
 
@@ -33,6 +28,9 @@ public class Controller {
         proposal4.setText("test");
     }
 
+    public void login(){
+        Login.login();
+    }
 }
 
 
