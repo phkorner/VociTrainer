@@ -1,6 +1,9 @@
 package src.application.model.view;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class Controller {
 
@@ -8,9 +11,6 @@ public class Controller {
     public Button proposal2;
     public Button proposal3;
     public Button proposal4;
-    public Button login;
-
-
 
     public void handleclick1(){
         proposal1.setText("test");
@@ -29,7 +29,7 @@ public class Controller {
     }
 
     public void login(){
-        Login.login();
+        Login login;
     }
 }
 
