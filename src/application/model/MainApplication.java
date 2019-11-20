@@ -3,20 +3,25 @@ package src.application.model;
 
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
+import javafx.stage.Window;
 
 
 public class MainApplication extends Application {
 
     private Stage primaryStage;
     private AnchorPane rootLayout;
+    private AnchorPane login;
     private String correctAnswer;
     private String wrongAnswer1;
     private String wrongAnswer2;
     private String wrongAnswer3;
+
+
 
     /*
      * main method to launch primary stage
@@ -51,6 +56,7 @@ public class MainApplication extends Application {
      * 
      * notice: make sure to have the same javafx version in .fxml file as in IDE compiler!
      */
+
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.
@@ -60,7 +66,7 @@ public class MainApplication extends Application {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
-            
+
             primaryStage.setScene(scene);
             primaryStage.show();
 
@@ -68,7 +74,6 @@ public class MainApplication extends Application {
             e.printStackTrace();
         }
     }
-
 
 
     /*

@@ -1,6 +1,11 @@
 package src.application.model.view;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import src.application.model.MainApplication;
+import sun.applet.Main;
 
 public class Controller {
 
@@ -8,6 +13,9 @@ public class Controller {
     public Button proposal2;
     public Button proposal3;
     public Button proposal4;
+    public Button login;
+
+
 
     public void handleclick1(){
         proposal1.setText("test");
@@ -24,4 +32,8 @@ public class Controller {
     public void handleclick4(){
         proposal4.setText("test");
     }
+
 }
+
+
+
