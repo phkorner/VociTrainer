@@ -12,6 +12,11 @@ import java.util.HashMap;
  * https://www.baeldung.com/guava-multimap (suggestion?)
  *
  * ==> or even better: read hashmap (1-1) and randomly map other words to it!!
+ *
+ *
+ * Die Wörterliste haben wir grösstenteils von:
+ * https://www.wordbeat.com/englisch-grundwortschatz-vokabelliste/
+ *
  */
 public class DBReader {
 
