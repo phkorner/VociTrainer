@@ -1,0 +1,7 @@
+Tisch,table
+Stuhl,chair
+Bett,bed
+Tür,door
+Auto,car
+Meer,sea
+Haus,house
