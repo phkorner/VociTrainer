@@ -17,7 +17,7 @@ public class DBReader {
 
     public static void main(String[] args) {
 
-        File file = new File("src/com/local/DE-EN.txt");
+        File file = new File("src/application/model/DE-EN.txt");
         HashMap<String, String> map = new HashMap<String, String>(); // key-value-couple (used for right answers)
         ArrayList<String> words = new ArrayList<String>(); // list of all translations (used for wrong answers)
 
@@ -35,7 +35,7 @@ public class DBReader {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("src/com/local/DE-EN.txt nicht gefunden");
+            System.out.println("src/application/model/DE-EN.txt nicht gefunden");
         } catch (IOException e) {
             e.printStackTrace();
         }
