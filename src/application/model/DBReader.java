@@ -20,7 +20,7 @@ import java.util.HashMap;
  */
 public class DBReader {
 
-    public static void main(String[] args) {
+    public static void loaddata() {
 
         File file = new File("src/application/model/DE-EN.txt");
         HashMap<String, String> map = new HashMap<String, String>(); // key-value-couple (used for right answers)
@@ -56,7 +56,7 @@ public class DBReader {
         System.out.println("Alle Wörter für die falschen Optionen sind: ");
         System.out.println("********************************************");
         for (String options : words) {
-            System.out.print(options + " ");
+            System.out.print(options + ", ");
         }
     }
 }

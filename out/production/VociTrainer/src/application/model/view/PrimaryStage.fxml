@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.Controller">
+<AnchorPane stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.Controller">
     <children>
         <Pane styleClass="background" stylesheets="@Styles.css">
             <children>
@@ -56,8 +56,8 @@
                     <menus>
                         <Menu mnemonicParsing="false" styleClass="menu-item" text="File">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Load" />
-                                <MenuItem mnemonicParsing="false" text="Save" />
+                                <MenuItem mnemonicParsing="false" onAction="#loaddata" text="Load" />
+                                <MenuItem mnemonicParsing="false" onAction="#savedata" text="Save" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" styleClass="menu-item" text="Edit">

@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import src.application.model.DBReader;
+import src.application.model.FileSave;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -18,8 +20,6 @@ public class Controller {
     public Button proposal2;
     public Button proposal3;
     public Button proposal4;
-    public Button login;
-    private Stage window;
 
     public void handleclick1(){
         proposal1.setText("test");
@@ -50,6 +50,15 @@ public class Controller {
             System.out.println("Cannot start Login Page");
         }
 
+    }
+
+    public void loaddata(){
+        DBReader.loaddata();
+        return;
+    }
+
+    public void savedata(){
+        FileSave.fileSave();
     }
 }
 
