@@ -3,34 +3,25 @@ package src.application.model.view;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.application.model.MainApplication;
-
-import java.awt.*;
 import java.io.IOException;
+import src.application.model.view.Controller;
 
-public class Login {
-    Stage window = new Stage();
-    private AnchorPane rootLayout2;
 
-    public void start() throws Exception {
+public class Login extends Application {
+    public Stage window = new Stage();
+    public AnchorPane rootLayout2;
 
-        //VBox layout = new VBox(10);
-        //layout.getChildren().addAll();
-
-        //Scene scene = new Scene(layout);
-        //window.setScene(scene);
-        //window.showAndWait();
-
+    @Override
+    public void start(Stage window) throws Exception {
 
         try {
-            window = window;
-            window.setTitle("Please log in...");
-            window.initModality(Modality.APPLICATION_MODAL);
+            this.window = window;
+            this.window.setTitle("Please log in...");
+            this.window.initModality(Modality.APPLICATION_MODAL);
 
             initRootLayout2();
 
@@ -39,6 +30,8 @@ public class Login {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }
 
     public void initRootLayout2() {
@@ -60,5 +53,6 @@ public class Login {
 
     }
 }
+
 
 
