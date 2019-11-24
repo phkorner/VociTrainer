@@ -42,9 +42,10 @@ public class Controller {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Please login...");
             stage.setScene(new Scene(root1));
-            stage.show();
+            stage.showAndWait();
         }catch (Exception e){
             System.out.println("Cannot start Login Page");
         }
