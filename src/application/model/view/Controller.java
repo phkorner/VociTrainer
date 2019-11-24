@@ -29,7 +29,8 @@ public class Controller {
     }
 
     public void login(){
-        Login login;
+
+        Login start = new Login();
     }
 }
 

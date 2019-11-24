@@ -17,7 +17,7 @@ public class Login {
     Stage window = new Stage();
     private AnchorPane rootLayout2;
 
-    public void login() throws Exception {
+    public void start() throws Exception {
 
         //VBox layout = new VBox(10);
         //layout.getChildren().addAll();
