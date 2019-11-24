@@ -14,7 +14,7 @@ public class FileSave extends Component {
         JFrame parentFrame = new JFrame();
 
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Select path to store the file", "accdb");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Select path to store the file", "txt");
         fileChooser.setFileFilter(filter);
 
         int userSelection = fileChooser.showSaveDialog(parentFrame);
