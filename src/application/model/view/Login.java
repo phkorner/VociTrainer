@@ -2,6 +2,7 @@ package src.application.model.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -49,6 +50,30 @@ public class Login extends Application {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    public void createNewAccount()  {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewAccount.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Create a new User- Account");
+            stage.setScene(new Scene(root1));
+            stage.showAndWait();
+        }catch (Exception e){
+            System.out.println("Cannot load Page");
+        }
+
+    }
+
+    public void logintoAccount()  {
+        try {
+
+        }catch (Exception e){
+            System.out.println("Cannot load Page");
         }
 
     }
