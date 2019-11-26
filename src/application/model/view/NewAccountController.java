@@ -5,7 +5,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import src.application.model.MainApplication;
 import src.application.model.Person;
+
+import java.util.List;
 
 
 public class NewAccountController {
@@ -34,24 +37,8 @@ public class NewAccountController {
     private void initialize() {
     }
 
-    /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage
-     */
-    public void setDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
-
-    /**
-     * Returns true if the user clicked OK, false otherwise.
-     *
-     * @return
-     */
-    public boolean isOkClicked() {
-
-        return okClicked;
-    }
+    // Reference to the main application.
+    private Login login;
 
     /**
      * Called when the user clicks ok.
@@ -65,9 +52,9 @@ public class NewAccountController {
             person.setPassword(passwordField.getText());
             person.setRepeatPassword(repeatPasswordField.getText());
 
-            okClicked = true;
-            dialogStage.close();
 
+            login.window.close();
+            //dialogStage.close();
         }
     }
 
