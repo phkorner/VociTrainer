@@ -1,40 +1,40 @@
 package src.application.model.view;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.application.model.DBReader;
 import src.application.model.FileSave;
 
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-
 public class Controller {
 
+    // instance variables
     public Button proposal1;
     public Button proposal2;
     public Button proposal3;
     public Button proposal4;
+    private DBReader Woerterbuch;
 
-    public void handleclick1(){
-        proposal1.setText("test");
+    //constructor
+    public Controller() {
+        this.Woerterbuch = new DBReader();
     }
 
+    public void handleclick1(){ proposal1.setText(Woerterbuch.getRandomWrongAnswer()); }
+
     public void handleclick2(){
-        proposal2.setText("test");
+        proposal2.setText(Woerterbuch.getRandomWrongAnswer());
     }
 
     public void handleclick3(){
-        proposal3.setText("test");
+        proposal3.setText(Woerterbuch.getRandomWrongAnswer());
     }
 
     public void handleclick4(){
-        proposal4.setText("test");
+        proposal4.setText(Woerterbuch.getRandomWrongAnswer());
     }
 
     public void handleclick5()  {
@@ -53,7 +53,6 @@ public class Controller {
     }
 
     public void loaddata(){
-        DBReader.loaddata();
         return;
     }
 

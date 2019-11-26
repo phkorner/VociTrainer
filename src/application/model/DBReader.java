@@ -4,27 +4,26 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/*
- * required is a multimap: one key and four values.
- * i.e. Tisch --> table, sun, moon, cloud
- *
- * Library from:
- * https://www.baeldung.com/guava-multimap (suggestion?)
- *
- * ==> or even better: read hashmap (1-1) and randomly map other words to it!!
- *
- *
- * Die Wörterliste haben wir grösstenteils von:
- * https://www.wordbeat.com/englisch-grundwortschatz-vokabelliste/
- *
- */
 public class DBReader {
 
-    public static void loaddata() {
+    // instance variables
+    private HashMap<String, String> map = new HashMap<String, String>(); // key-value-couple (used for right answers)
+    private ArrayList<String> words = new ArrayList<String>(); // list of all translations (used for wrong answers)
+
+    /*
+    constructor to initialize the loading of vocabulary in txt-file.
+     */
+    public DBReader() {
+        loadData();
+    }
+
+    /*
+    this method loads the map (HashMap) and words (ArrayList) from the DE-EN.txt file into Object
+    it is called in the constructor
+     */
+    public void loadData() {
 
         File file = new File("src/application/model/DE-EN.txt");
-        HashMap<String, String> map = new HashMap<String, String>(); // key-value-couple (used for right answers)
-        ArrayList<String> words = new ArrayList<String>(); // list of all translations (used for wrong answers)
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -35,7 +34,7 @@ public class DBReader {
                     String key = parts[0];
                     String value = parts[1];
                     map.put(key, value); // building hashmap for correct answers
-                    words.add(parts[1]);
+                    words.add(parts[1]); // building arraylist for wrong answers
                 }
             }
 
@@ -44,19 +43,29 @@ public class DBReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        //output on console to check. delete later
-        System.out.println("Alle Schlüssel-Wert-Paare lauten: ");
-        System.out.println("**********************************");
-        for (String key : map.keySet())
-        {
-            System.out.println(key + " = " + map.get(key));
-        }
-        System.out.println();
-        System.out.println("Alle Wörter für die falschen Optionen sind: ");
-        System.out.println("********************************************");
-        for (String options : words) {
-            System.out.print(options + ", ");
-        }
+    /*
+    getter-method to load a random new word.
+     */
+    public String getQuestionWord() {
+        int mapIndex = (int) (Math.random() * (map.size() + 1));
+        return map.get(mapIndex);
+    }
+
+    /*
+    used to obtain the correct Answer
+     */
+    public String getCorrectAnswer() {
+        //todo: CorrectAnswer is dependent from QuestionWord. To implement!
+        return map.get(0); //default to be implemented
+    }
+
+    /*
+    used to fill up the wrong answer buttons from ArrayList
+     */
+    public String getRandomWrongAnswer() {
+        int wordsIndex = (int) (Math.random() * (words.size() + 1));
+        return words.get(wordsIndex);
     }
 }
