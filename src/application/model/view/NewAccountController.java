@@ -64,7 +64,8 @@ public class NewAccountController {
      */
     @FXML
     private void handleCancel() {
-        dialogStage.close();
+        login.window.close();
+        //dialogStage.close();
     }
 
 
