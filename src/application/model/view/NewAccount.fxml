@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="280.0" prefWidth="450.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.NewAccountController">
+<AnchorPane prefHeight="280.0" prefWidth="450.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.NewAccountController">
    <children>
       <GridPane layoutX="109.0" layoutY="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
         <columnConstraints>
@@ -59,8 +59,8 @@
       </GridPane>
       <ButtonBar layoutX="186.0" layoutY="246.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#handleOk" stylesheets="@Styles.css" text="Save" />
-            <Button cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+          <Button mnemonicParsing="false" onAction="#handleOk" stylesheets="@Styles.css" text="OK" />
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
         </buttons>
       </ButtonBar>
       <Label layoutX="14.0" layoutY="14.0" styleClass="column-header" text="Create new User-Account" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />

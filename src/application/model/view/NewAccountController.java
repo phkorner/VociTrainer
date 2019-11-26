@@ -109,7 +109,7 @@ public class NewAccountController {
             errorMessage += "No valid password repetition!\n";
         }
 
-        if (passwordField.getText() != repeatPasswordField.getText()){
+        if (passwordField.getText() == repeatPasswordField.getText()){
             errorMessage += "Your password entries are not identical\n";
         }
 
