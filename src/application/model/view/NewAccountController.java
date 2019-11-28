@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 import src.application.model.MainApplication;
 import src.application.model.Person;
 
+import javax.swing.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.List;
 
 
@@ -24,6 +28,7 @@ public class NewAccountController {
     private Person person;
     private boolean okClicked = false;
     private Stage dialogStage;
+    public String filepath = "src.application.model.Users.txt";
 
     /**
      * Initializes the controller class. This method is automatically called
@@ -46,9 +51,27 @@ public class NewAccountController {
             person.setPassword(passwordField.getText());
             person.setRepeatPassword(repeatPasswordField.getText());
 
+            saveRecord(userNameField,passwordField,filepath);
 
             login.window.close();
             //dialogStage.close();
+        }
+    }
+
+    public static void saveRecord(TextField userNameField, TextField passwordField, String filepath){
+        try {
+            FileWriter createAccount = new FileWriter(filepath, true);
+            BufferedWriter bw = new BufferedWriter(createAccount);
+            PrintWriter pw = new PrintWriter(bw);
+
+            pw.println(userNameField+","+passwordField);
+            pw.flush();
+            pw.close();
+
+            JOptionPane.showMessageDialog(null, "User Account has been created");
+
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "User Account has not been created");
         }
     }
 
