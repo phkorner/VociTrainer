@@ -21,11 +21,11 @@ public class Person {
     /**
      * Constructor with some initial data.
      *
-     * @param firstName
-     * @param lastName
+     * @param userName
+     *
      */
-    public Person(String firstName, String lastName) {
-        this.userName = new SimpleStringProperty(firstName);
+    public Person(String userName) {
+        this.userName = new SimpleStringProperty();
 
         // Some initial dummy data, just for convenient testing.
         this.password = new SimpleStringProperty("password");
@@ -37,8 +37,8 @@ public class Person {
         return userName.get();
     }
 
-    public void setUserName(String firstName) {
-        this.userName.set(firstName);
+    public void setUserName(String userName) {
+        this.userName.set(userName);
     }
 
     public StringProperty userNameProperty() {

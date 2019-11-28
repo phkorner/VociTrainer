@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="224.0" prefWidth="450.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.NewAccountController">
+<AnchorPane prefHeight="224.0" prefWidth="450.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.NewAccountController">
    <children>
       <GridPane layoutX="109.0" layoutY="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
         <columnConstraints>
@@ -27,7 +27,7 @@
             <Label text="User Name" />
             <Label text="Password" GridPane.rowIndex="2" />
             <Label text="Repeat Password" GridPane.rowIndex="3" />
-            <TextField fx:id="firstNameField" promptText="User Name" GridPane.columnIndex="1">
+            <TextField fx:id="userNameField" promptText="User Name" GridPane.columnIndex="1">
                <padding>
                   <Insets bottom="3.0" top="3.0" />
                </padding>
