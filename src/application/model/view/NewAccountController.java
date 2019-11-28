@@ -14,11 +14,7 @@ import java.util.List;
 public class NewAccountController {
 
     @FXML
-    private TextField firstNameField;
-    @FXML
-    private TextField lastNameField;
-    @FXML
-    private TextField emailField;
+    private TextField userNameField;
     @FXML
     private TextField passwordField;
     @FXML
@@ -46,9 +42,7 @@ public class NewAccountController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            person.setFirstName(firstNameField.getText());
-            person.setLastName(lastNameField.getText());
-            person.setEmail(emailField.getText());
+            person.setUserName(userNameField.getText());
             person.setPassword(passwordField.getText());
             person.setRepeatPassword(repeatPasswordField.getText());
 
@@ -77,16 +71,8 @@ public class NewAccountController {
     private boolean isInputValid() {
         String errorMessage = "";
 
-        if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
+        if (userNameField.getText() == null || userNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n";
-        }
-
-        if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
-            errorMessage += "No valid last name!\n";
-        }
-
-        if (emailField.getText() == null || emailField.getText().length() == 0) {
-            errorMessage += "No valid email-Address!\n";
         }
 
         if (passwordField.getText() == null || passwordField.getText().length() == 0) {

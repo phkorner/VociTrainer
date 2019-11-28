@@ -13,9 +13,7 @@ import javafx.beans.property.StringProperty;
 
 public class Person {
 
-    private final StringProperty firstName;
-    private final StringProperty lastName;
-    private final StringProperty email;
+    private final StringProperty userName;
     private final StringProperty password;
     private final StringProperty repeatPassword;
 
@@ -27,50 +25,24 @@ public class Person {
      * @param lastName
      */
     public Person(String firstName, String lastName) {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.lastName = new SimpleStringProperty(lastName);
+        this.userName = new SimpleStringProperty(firstName);
 
         // Some initial dummy data, just for convenient testing.
-        this.email = new SimpleStringProperty("email Adress");
         this.password = new SimpleStringProperty("password");
         this.repeatPassword = new SimpleStringProperty("Repeat password");
 
     }
 
-    public String getFirstName() {
-        return firstName.get();
+    public String getUserName() {
+        return userName.get();
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName.set(firstName);
+    public void setUserName(String firstName) {
+        this.userName.set(firstName);
     }
 
-    public StringProperty firstNameProperty() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName.get();
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName.set(lastName);
-    }
-
-    public StringProperty lastNameProperty() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email.get();
-    }
-
-    public void setEmail(String email) {
-        this.email.set(email);
-    }
-
-    public StringProperty emailProperty() {
-        return email;
+    public StringProperty userNameProperty() {
+        return userName;
     }
 
     public String getPassword() {
