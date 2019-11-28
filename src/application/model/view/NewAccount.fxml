@@ -27,7 +27,7 @@
             <Label text="User Name" />
             <Label text="Password" GridPane.rowIndex="2" />
             <Label text="Repeat Password" GridPane.rowIndex="3" />
-            <TextField fx:id="firstNameField" promptText="User Name" GridPane.columnIndex="1">
+            <TextField fx:id="userNameField" promptText="User Name" GridPane.columnIndex="1">
                <padding>
                   <Insets bottom="3.0" top="3.0" />
                </padding>
