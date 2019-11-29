@@ -5,14 +5,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import src.application.model.MainApplication;
-import src.application.model.Person;
 
 import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.util.List;
 
 
 public class NewAccountController {
