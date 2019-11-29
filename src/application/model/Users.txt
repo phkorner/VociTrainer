@@ -1,2 +1,2 @@
-phkorner, 123
-phhartung, 123mm,mm
+phkorner,123
+phhartung,123

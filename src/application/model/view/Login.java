@@ -1,23 +1,34 @@
 package src.application.model.view;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.application.model.MainApplication;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
-import src.application.model.view.Controller;
+import java.util.Scanner;
 
 
 public class Login extends Application {
     public Stage window = new Stage();
     public AnchorPane rootLayout2;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    public String filepath = "src/application/model/Users.txt";
+
+    private static Scanner x;
 
     @Override
-    public void start(Stage window) throws Exception {
+    public void start(Stage window) {
 
         try {
             this.window = window;
@@ -26,13 +37,9 @@ public class Login extends Application {
 
             initRootLayout2();
 
-            // Login- Layout.show();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void initRootLayout2() {
@@ -51,7 +58,6 @@ public class Login extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void createNewAccount()  {
@@ -66,14 +72,32 @@ public class Login extends Application {
         }catch (Exception e){
             System.out.println("Cannot load Page");
         }
-
     }
 
-    public void logintoAccount()  {
+    public void verifyLogin()  {
+
+        boolean found = false;
+        String tempUsername = "";
+        String tempPassword = "";
+
         try {
+            x = new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+
+            while (x.hasNext() && !found){
+                tempUsername = x.next();
+                tempPassword = x.next();
+
+                if (tempUsername.trim().equals(username.getText().trim()) && tempPassword.trim().equals(password.getText().trim())){
+                    found = true;
+                }
+            }
+            x.close();
+            System.out.println("Login successfully!");
 
         }catch (Exception e){
-            System.out.println("Cannot load Page");
+            System.out.println("User or password is wrong.");
+            e.printStackTrace();
         }
 
     }

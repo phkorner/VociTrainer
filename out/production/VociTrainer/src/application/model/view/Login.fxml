@@ -13,11 +13,11 @@
    <children>
       <VBox prefHeight="163.0" prefWidth="350.0" spacing="10.0" styleClass="root" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField promptText="username" />
-            <PasswordField promptText="password" />
+            <TextField fx:id="username" promptText="Username" />
+            <PasswordField fx:id="password" promptText="Password" />
             <HBox spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#logintoAccount" text="Login" />
+                  <Button mnemonicParsing="false" onAction="#verifyLogin" text="Login" />
                   <Region HBox.hgrow="ALWAYS" />
                   <Button mnemonicParsing="false" onAction="#createNewAccount" text="Create account" />
                </children>
