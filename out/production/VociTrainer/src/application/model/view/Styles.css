@@ -50,3 +50,7 @@
     -fx-font-size: 10pt;
 }
 
+.JOptionPane {
+    -fx-background-color: #585858;
+    -fx-font-size: 11pt;
+}

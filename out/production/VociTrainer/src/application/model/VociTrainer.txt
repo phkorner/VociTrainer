@@ -1,8 +1,0 @@
-German	Antwort korrekt	Antwort falsch1	Antwort falsch2	Antwort falsch3
-Tisch	table	sun	moon	cloud
-Stuhl	chair	boat	motorbike	chest
-Bett	bed	leg	bad	bycicle
-Tür	door	window	shell	cold
-Auto	car	war	machine	truck
-Meer	sea	lake	river	glass
-Haus	house	mouse	door	office

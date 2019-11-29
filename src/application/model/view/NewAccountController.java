@@ -24,7 +24,7 @@ public class NewAccountController {
 
 
     private boolean okClicked = false;
-    private Stage dialogStage;
+    private Stage dialogStage = new Stage();
     public String filepath = "src/application/model/Users.txt";
 
     /**
@@ -37,6 +37,7 @@ public class NewAccountController {
 
     // Reference to the main application.
     private Login login = new Login();
+    
 
 
     /**
@@ -49,8 +50,8 @@ public class NewAccountController {
 
             saveRecord(userNameField,passwordField,filepath);
 
-            login.window.close();
-            //dialogStage.close();
+           // login.window.close();
+           // dialogStage.close();
         }
     }
 
@@ -77,7 +78,7 @@ public class NewAccountController {
      */
     @FXML
     private void handleCancel() {
-        login.window.close();
+        //login.window.close();
         //dialogStage.close();
     }
 

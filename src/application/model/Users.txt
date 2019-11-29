@@ -1,7 +1,2 @@
-pk,88
-sr,sr
-99,ii
-op,op
-uu,uu
-uu,uu
-aa,aa
+phkorner, 123
+phhartung, 123mm,mm
