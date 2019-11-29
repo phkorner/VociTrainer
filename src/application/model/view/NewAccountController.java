@@ -5,26 +5,27 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import src.application.model.Person;
+
+import javax.swing.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 
 public class NewAccountController {
 
     @FXML
-    private TextField firstNameField;
-    @FXML
-    private TextField lastNameField;
-    @FXML
-    private TextField emailField;
+    private TextField userNameField;
     @FXML
     private TextField passwordField;
     @FXML
     private TextField repeatPasswordField;
 
 
-    private Person person;
+
     private boolean okClicked = false;
-    private Stage dialogStage;
+    private Stage dialogStage = new Stage();
+    public String filepath = "src/application/model/Users.txt";
 
     /**
      * Initializes the controller class. This method is automatically called
@@ -34,24 +35,10 @@ public class NewAccountController {
     private void initialize() {
     }
 
-    /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage
-     */
-    public void setDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
+    // Reference to the main application.
+    private Login login = new Login();
+    
 
-    /**
-     * Returns true if the user clicked OK, false otherwise.
-     *
-     * @return
-     */
-    public boolean isOkClicked() {
-
-        return okClicked;
-    }
 
     /**
      * Called when the user clicks ok.
@@ -59,15 +46,29 @@ public class NewAccountController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            person.setFirstName(firstNameField.getText());
-            person.setLastName(lastNameField.getText());
-            person.setEmail(emailField.getText());
-            person.setPassword(passwordField.getText());
-            person.setRepeatPassword(repeatPasswordField.getText());
 
-            okClicked = true;
-            dialogStage.close();
 
+            saveRecord(userNameField,passwordField,filepath);
+
+           // login.window.close();
+           // dialogStage.close();
+        }
+    }
+
+    public static void saveRecord(TextField userNameField, TextField passwordField, String filepath){
+        try {
+            FileWriter createAccount = new FileWriter(filepath, true);
+            BufferedWriter bw = new BufferedWriter(createAccount);
+            PrintWriter pw = new PrintWriter(bw);
+
+            pw.println(userNameField.getText()+","+passwordField.getText());
+            pw.flush();
+            pw.close();
+
+            JOptionPane.showMessageDialog(null, "User Account has been created");
+
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "User Account has not been created");
         }
     }
 
@@ -77,7 +78,8 @@ public class NewAccountController {
      */
     @FXML
     private void handleCancel() {
-        dialogStage.close();
+        //login.window.close();
+        //dialogStage.close();
     }
 
 
@@ -89,16 +91,8 @@ public class NewAccountController {
     private boolean isInputValid() {
         String errorMessage = "";
 
-        if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
+        if (userNameField.getText() == null || userNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n";
-        }
-
-        if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
-            errorMessage += "No valid last name!\n";
-        }
-
-        if (emailField.getText() == null || emailField.getText().length() == 0) {
-            errorMessage += "No valid email-Address!\n";
         }
 
         if (passwordField.getText() == null || passwordField.getText().length() == 0) {
@@ -109,7 +103,7 @@ public class NewAccountController {
             errorMessage += "No valid password repetition!\n";
         }
 
-        if (passwordField.getText() != repeatPasswordField.getText()){
+        if (passwordField.getText() == repeatPasswordField.getText()){
             errorMessage += "Your password entries are not identical\n";
         }
 
