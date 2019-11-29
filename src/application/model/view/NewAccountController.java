@@ -36,7 +36,8 @@ public class NewAccountController {
     }
 
     // Reference to the main application.
-    private Login login;
+    private Login login = new Login();
+
 
     /**
      * Called when the user clicks ok.
@@ -59,7 +60,7 @@ public class NewAccountController {
             BufferedWriter bw = new BufferedWriter(createAccount);
             PrintWriter pw = new PrintWriter(bw);
 
-            pw.println(userNameField+","+passwordField);
+            pw.println(userNameField.getText()+","+passwordField.getText());
             pw.flush();
             pw.close();
 

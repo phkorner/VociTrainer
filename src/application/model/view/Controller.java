@@ -45,7 +45,7 @@ public class Controller {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Please login...");
             stage.setScene(new Scene(root1));
-            stage.showAndWait();
+            stage.show();
         }catch (Exception e){
             System.out.println("Cannot start Login Page");
         }
