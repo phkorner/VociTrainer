@@ -25,10 +25,10 @@ public class NewAccountController {
     private TextField repeatPasswordField;
 
 
-    private Person person;
+
     private boolean okClicked = false;
     private Stage dialogStage;
-    public String filepath = "Users.txt";
+    public String filepath = "src/application/model/Users.txt";
 
     /**
      * Initializes the controller class. This method is automatically called
@@ -47,9 +47,7 @@ public class NewAccountController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            person.setUserName(userNameField.getText());
-            person.setPassword(passwordField.getText());
-            person.setRepeatPassword(repeatPasswordField.getText());
+
 
             saveRecord(userNameField,passwordField,filepath);
 
@@ -106,7 +104,7 @@ public class NewAccountController {
             errorMessage += "No valid password repetition!\n";
         }
 
-        if (passwordField.getText() != repeatPasswordField.getText()){
+        if (passwordField.getText() == repeatPasswordField.getText()){
             errorMessage += "Your password entries are not identical\n";
         }
 

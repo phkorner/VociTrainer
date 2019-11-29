@@ -57,7 +57,7 @@ public class Login extends Application {
     public void createNewAccount()  {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewAccount.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
+            Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Create a new User- Account");
