@@ -46,7 +46,7 @@ public class DBReader {
 
     /*
      * randomly choose a new question and fill the reply buttons.
-     * @return: ArrayList(0 = word, 1-4 = buttons)
+     * @return: String[4] array with 4 answers on index 0,1,2,3 and question word on index 4.
      */
     public String[] getNewQuestion() {
 
@@ -65,16 +65,15 @@ public class DBReader {
         wrongAnswer2 = map.get((int) (Math.random() * (map.size() + 1)));
         wrongAnswer3 = map.get((int) (Math.random() * (map.size() + 1)));
 
-        //shuffle the entries (tbd)
+        //shuffle the entries
         String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
         List<String> shuffleList = Arrays.asList(shuffleArray);
         Collections.shuffle(shuffleList);
-        shuffleList.toArray(shuffleArray);
 
-        //todo: shuffleList überführen in arr[] durch hinzufügen des "word" hinten oder vorne....
-
-        //fill String[] for all five elements in javafx
-        String arr[] = {word, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
+        //add the correct word and build arr String[] for FX frontend
+        String arr[] = new String[4];
+        shuffleList.add(word);
+        shuffleList.toArray(arr);
         return arr;
     }
 
