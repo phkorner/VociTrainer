@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="224.0" prefWidth="450.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.NewAccountController">
+<AnchorPane prefHeight="250.0" prefWidth="450.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.NewAccountController">
    <children>
       <GridPane layoutX="109.0" layoutY="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.5" minWidth="10.0" prefWidth="180.5" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.5" minWidth="10.0" prefWidth="254.5" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
@@ -27,20 +27,29 @@
             <Label text="User Name" />
             <Label text="Password" GridPane.rowIndex="2" />
             <Label text="Repeat Password" GridPane.rowIndex="3" />
-            <TextField fx:id="userNameField" promptText="User Name" GridPane.columnIndex="1">
+            <TextField fx:id="userNameField" promptText=" User Name" GridPane.columnIndex="1">
                <padding>
                   <Insets bottom="3.0" top="3.0" />
                </padding>
+               <opaqueInsets>
+                  <Insets left="5.0" />
+               </opaqueInsets>
             </TextField>
-            <TextField fx:id="passwordField" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="passwordField" promptText=" Password" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <padding>
                   <Insets bottom="3.0" top="3.0" />
                </padding>
+               <opaqueInsets>
+                  <Insets left="5.0" />
+               </opaqueInsets>
             </TextField>
-            <TextField fx:id="repeatPasswordField" promptText="Repeat Password" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="repeatPasswordField" promptText=" Repeat Password" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <padding>
                   <Insets bottom="3.0" top="3.0" />
                </padding>
+               <opaqueInsets>
+                  <Insets left="5.0" />
+               </opaqueInsets>
             </TextField>
          </children>
       </GridPane>

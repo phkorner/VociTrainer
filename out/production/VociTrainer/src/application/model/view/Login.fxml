@@ -9,21 +9,33 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="150.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.Login">
+<AnchorPane prefHeight="250.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.Login">
    <children>
       <VBox prefHeight="163.0" prefWidth="350.0" spacing="10.0" styleClass="root" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField fx:id="username" promptText="Username" />
-            <PasswordField fx:id="password" promptText="Password" />
+            <TextField fx:id="username" promptText="Username">
+               <VBox.margin>
+                  <Insets left="5.0" right="10.0" />
+               </VBox.margin></TextField>
+            <PasswordField fx:id="password" promptText="Password">
+               <VBox.margin>
+                  <Insets left="5.0" right="10.0" />
+               </VBox.margin></PasswordField>
             <HBox spacing="20.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#verifyLogin" text="Login" />
-                  <Region HBox.hgrow="ALWAYS" />
+                  <Region HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Region>
                   <Button mnemonicParsing="false" onAction="#createNewAccount" text="Create account" />
                </children>
                <padding>
                   <Insets bottom="5.0" top="5.0" />
                </padding>
+               <VBox.margin>
+                  <Insets left="5.0" right="10.0" top="90.0" />
+               </VBox.margin>
             </HBox>
          </children>
          <padding>

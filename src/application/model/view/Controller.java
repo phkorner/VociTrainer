@@ -1,5 +1,6 @@
 package src.application.model.view;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,8 +23,13 @@ public class Controller {
 
     //constructor
     public Controller() {
+    }
+
+    @FXML
+    private void initialize() {
         this.Woerterbuch = new DBReader();
-        // course.setText(Woerterbuch.getFilename()); todo
+        course.setText(Woerterbuch.getFilename());
+
     }
 
     public void handleclick1(){ proposal1.setText(Woerterbuch.getCorrectAnswer()); }
