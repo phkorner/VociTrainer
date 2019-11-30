@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.application.model.DBReader;
@@ -16,11 +17,13 @@ public class Controller {
     public Button proposal2;
     public Button proposal3;
     public Button proposal4;
+    public Label course;
     private DBReader Woerterbuch;
 
     //constructor
     public Controller() {
         this.Woerterbuch = new DBReader();
+        // course.setText(Woerterbuch.getFilename()); todo
     }
 
     public void handleclick1(){ proposal1.setText(Woerterbuch.getRandomWrongAnswer()); }
