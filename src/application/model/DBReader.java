@@ -1,8 +1,7 @@
 package src.application.model;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class DBReader {
 
@@ -33,8 +32,8 @@ public class DBReader {
                     String[] parts = line.split(",");
                     String key = parts[0];
                     String value = parts[1];
-                    map.put(key, value); // building hashmap for correct answers
-                    words.add(parts[1]); // building arraylist for wrong answers
+                    map.put(key, value); // building hashmap for pairing (translation)
+                    words.add(parts[0]); // building arraylist of keys from hashmap to access randomly
                 }
             }
 
@@ -43,6 +42,40 @@ public class DBReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /*
+     * randomly choose a new question and fill the reply buttons.
+     * @return: ArrayList(0 = word, 1-4 = buttons)
+     */
+    public String[] getNewQuestion() {
+
+        //declare variables
+        String word, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3;
+
+        //randomly choose a word from words ArrayList
+        int wordIndex = (int) (Math.random() * (words.size() + 1));
+        word = words.get(wordIndex);
+
+        //obtain the correctAnswer from hashMap
+        correctAnswer = map.get(word);
+
+        //gather three random wrong answers
+        wrongAnswer1 = map.get((int) (Math.random() * (map.size() + 1)));
+        wrongAnswer2 = map.get((int) (Math.random() * (map.size() + 1)));
+        wrongAnswer3 = map.get((int) (Math.random() * (map.size() + 1)));
+
+        //shuffle the entries (tbd)
+        String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
+        List<String> shuffleList = Arrays.asList(shuffleArray);
+        Collections.shuffle(shuffleList);
+        shuffleList.toArray(shuffleArray);
+
+        //todo: shuffleList überführen in arr[] durch hinzufügen des "word" hinten oder vorne....
+
+        //fill String[] for all five elements in javafx
+        String arr[] = {word, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
+        return arr;
     }
 
     /*
@@ -67,5 +100,14 @@ public class DBReader {
     public String getRandomWrongAnswer() {
         int wordsIndex = (int) (Math.random() * (words.size() + 1));
         return words.get(wordsIndex);
+    }
+
+    /*
+     * todo: getter method for file name
+     */
+    public String getFilename() {
+
+        String filename = "test";
+        return filename;
     }
 }
