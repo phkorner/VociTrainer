@@ -21,9 +21,9 @@ public class DBReader {
         loadData();
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
         this.correctAnswer = map.get(word);
-        this.wrongAnswer1 = map.get((int) (Math.random() * (map.size() + 1))); //todo funktioniert nicht mit hashmap
-        this.wrongAnswer2 = map.get((int) (Math.random() * (map.size() + 1)));
-        this.wrongAnswer3 = map.get((int) (Math.random() * (map.size() + 1)));
+        this.wrongAnswer1 = words.get((int) (Math.random() * (words.size() + 1)));
+        this.wrongAnswer2 = words.get((int) (Math.random() * (words.size() + 1)));
+        this.wrongAnswer3 = words.get((int) (Math.random() * (words.size() + 1)));
     }
 
     /*
