@@ -48,6 +48,7 @@ public class Controller {
             stage.show();
         }catch (Exception e){
             System.out.println("Cannot start Login Page");
+            e.printStackTrace();
         }
 
     }

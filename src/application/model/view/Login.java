@@ -72,6 +72,7 @@ public class Login extends Application {
             stage.show();
         }catch (Exception e){
             System.out.println("Cannot load Page");
+            e.printStackTrace();
         }
     }
 
