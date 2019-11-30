@@ -26,18 +26,18 @@ public class Controller {
         // course.setText(Woerterbuch.getFilename()); todo
     }
 
-    public void handleclick1(){ proposal1.setText(Woerterbuch.getRandomWrongAnswer()); }
+    public void handleclick1(){ proposal1.setText(Woerterbuch.getCorrectAnswer()); }
 
     public void handleclick2(){
-        proposal2.setText(Woerterbuch.getRandomWrongAnswer());
+        proposal2.setText(Woerterbuch.getWrongAnswer1());
     }
 
     public void handleclick3(){
-        proposal3.setText(Woerterbuch.getRandomWrongAnswer());
+        proposal3.setText(Woerterbuch.getWrongAnswer2());
     }
 
     public void handleclick4(){
-        proposal4.setText(Woerterbuch.getRandomWrongAnswer());
+        proposal4.setText(Woerterbuch.getWrongAnswer3());
     }
 
     public void handleclick5()  {
