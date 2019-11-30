@@ -1,6 +1,5 @@
 package src.application.model;
 
-
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.control.Button;
@@ -15,10 +14,8 @@ public class MainApplication extends Application {
     private Stage primaryStage;
     private AnchorPane rootLayout;
     private AnchorPane login;
-    private String correctAnswer;
-    private String wrongAnswer1;
-    private String wrongAnswer2;
-    private String wrongAnswer3;
+
+
 
     /*
      * main method to launch primary stage
@@ -60,6 +57,7 @@ public class MainApplication extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApplication.class.getResource("/src/application/model/view/PrimaryStage.fxml"));
             rootLayout = loader.load();
+
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);

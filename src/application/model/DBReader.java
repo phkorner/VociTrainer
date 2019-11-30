@@ -1,15 +1,14 @@
 package src.application.model;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class DBReader {
 
     // instance variables
     private HashMap<String, String> map = new HashMap<String, String>(); // key-value-couple (used for right answers)
     private ArrayList<String> words = new ArrayList<String>(); // list of all translations (used for wrong answers)
-
+    private File file;
     /*
     constructor to initialize the loading of vocabulary in txt-file.
      */
@@ -23,7 +22,7 @@ public class DBReader {
      */
     public void loadData() {
 
-        File file = new File("src/application/model/DE-EN.txt");
+        this.file = new File("src/application/model/DE-EN.txt");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -33,8 +32,8 @@ public class DBReader {
                     String[] parts = line.split(",");
                     String key = parts[0];
                     String value = parts[1];
-                    map.put(key, value); // building hashmap for correct answers
-                    words.add(parts[1]); // building arraylist for wrong answers
+                    map.put(key, value); // building hashmap for pairing (translation)
+                    words.add(parts[0]); // building arraylist of keys from hashmap to access randomly
                 }
             }
 
@@ -46,26 +45,44 @@ public class DBReader {
     }
 
     /*
-    getter-method to load a random new word.
+     * randomly choose a new question and fill the reply buttons.
+     * @return: String[4] array with 4 answers on index 0,1,2,3 and question word on index 4.
      */
-    public String getQuestionWord() {
-        int mapIndex = (int) (Math.random() * (map.size() + 1));
-        return map.get(mapIndex);
+    public String[] getNewQuestion() {
+
+        //obtain all words and answers
+        String word, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3;
+        word = words.get((int) (Math.random() * (words.size() + 1)));
+        correctAnswer = map.get(word);
+        wrongAnswer1 = map.get((int) (Math.random() * (map.size() + 1)));
+        wrongAnswer2 = map.get((int) (Math.random() * (map.size() + 1)));
+        wrongAnswer3 = map.get((int) (Math.random() * (map.size() + 1)));
+
+        //shuffle the entries
+        String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
+        List<String> shuffleList = Arrays.asList(shuffleArray);
+        Collections.shuffle(shuffleList);
+
+        //add the correct word and build arr String[] for FX frontend
+        String arr[] = new String[4];
+        shuffleList.add(word);
+        shuffleList.toArray(arr);
+        return arr;
     }
 
     /*
-    used to obtain the correct Answer
-     */
-    public String getCorrectAnswer() {
-        //todo: CorrectAnswer is dependent from QuestionWord. To implement!
-        return map.get(0); //default to be implemented
-    }
-
-    /*
-    used to fill up the wrong answer buttons from ArrayList
+     * TO BE DELETED AFTER IMPLEMENTATION getNewQuestion() !!!
      */
     public String getRandomWrongAnswer() {
         int wordsIndex = (int) (Math.random() * (words.size() + 1));
         return words.get(wordsIndex);
+    }
+
+    /*
+     * getter-method for current filename in use
+     */
+    public String getFilename() {
+        String filename = file.getName();
+        return filename;
     }
 }
