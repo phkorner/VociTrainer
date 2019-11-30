@@ -8,7 +8,7 @@ public class DBReader {
     // instance variables
     private HashMap<String, String> map = new HashMap<String, String>(); // key-value-couple (used for right answers)
     private ArrayList<String> words = new ArrayList<String>(); // list of all translations (used for wrong answers)
-
+    private File file;
     /*
     constructor to initialize the loading of vocabulary in txt-file.
      */
@@ -22,7 +22,7 @@ public class DBReader {
      */
     public void loadData() {
 
-        File file = new File("src/application/model/DE-EN.txt");
+        this.file = new File("src/application/model/DE-EN.txt");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -50,17 +50,10 @@ public class DBReader {
      */
     public String[] getNewQuestion() {
 
-        //declare variables
+        //obtain all words and answers
         String word, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3;
-
-        //randomly choose a word from words ArrayList
-        int wordIndex = (int) (Math.random() * (words.size() + 1));
-        word = words.get(wordIndex);
-
-        //obtain the correctAnswer from hashMap
+        word = words.get((int) (Math.random() * (words.size() + 1)));
         correctAnswer = map.get(word);
-
-        //gather three random wrong answers
         wrongAnswer1 = map.get((int) (Math.random() * (map.size() + 1)));
         wrongAnswer2 = map.get((int) (Math.random() * (map.size() + 1)));
         wrongAnswer3 = map.get((int) (Math.random() * (map.size() + 1)));
@@ -78,23 +71,7 @@ public class DBReader {
     }
 
     /*
-    getter-method to load a random new word.
-     */
-    public String getQuestionWord() {
-        int mapIndex = (int) (Math.random() * (map.size() + 1));
-        return map.get(mapIndex);
-    }
-
-    /*
-    used to obtain the correct Answer
-     */
-    public String getCorrectAnswer() {
-        //todo: CorrectAnswer is dependent from QuestionWord. To implement!
-        return map.get(0); //default to be implemented
-    }
-
-    /*
-    used to fill up the wrong answer buttons from ArrayList
+     * TO BE DELETED AFTER IMPLEMENTATION getNewQuestion() !!!
      */
     public String getRandomWrongAnswer() {
         int wordsIndex = (int) (Math.random() * (words.size() + 1));
@@ -102,11 +79,10 @@ public class DBReader {
     }
 
     /*
-     * todo: getter method for file name
+     * getter-method for current filename in use
      */
     public String getFilename() {
-
-        String filename = "test";
+        String filename = file.getName();
         return filename;
     }
 }

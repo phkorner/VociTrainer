@@ -1,6 +1,5 @@
 package src.application.model;
 
-
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.control.Button;
