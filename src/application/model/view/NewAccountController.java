@@ -1,9 +1,15 @@
 package src.application.model.view;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -65,9 +71,27 @@ public class NewAccountController {
             pw.flush();
             pw.close();
 
-            JOptionPane.showMessageDialog(null, "User Account has been created");
+            Stage alertbox = new Stage();
+            alertbox.initModality(Modality.APPLICATION_MODAL);
+            alertbox.setTitle("Account-creatoin successful");
+            alertbox.setMinWidth(350);
+            alertbox.setMinHeight(120);
 
-        }catch (Exception e) {
+            Label label = new Label();
+            label.setText("User Account has been created");
+
+            Button closeButton = new Button("OK");
+            closeButton.setOnAction(event -> alertbox.close());
+
+            VBox layout = new VBox(10);
+            layout.getChildren().addAll(label, closeButton);
+            layout.setAlignment(Pos.CENTER);
+
+            Scene scene = new Scene(layout);
+            alertbox.setScene(scene);
+            alertbox.showAndWait();
+        }
+        catch (Exception e) {
             JOptionPane.showMessageDialog(null, "User Account has not been created");
             e.printStackTrace();
         }
