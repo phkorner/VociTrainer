@@ -69,6 +69,7 @@ public class NewAccountController {
 
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "User Account has not been created");
+            e.printStackTrace();
         }
     }
 
