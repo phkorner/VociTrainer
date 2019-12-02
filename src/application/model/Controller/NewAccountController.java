@@ -1,4 +1,4 @@
-package src.application.model.view;
+package src.application.model.Controller;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import src.application.model.view.Login;
 
 import javax.swing.*;
 import java.io.BufferedWriter;
