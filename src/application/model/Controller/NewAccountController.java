@@ -11,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import src.application.model.view.Login;
 
 import javax.swing.*;
 import java.io.BufferedWriter;
