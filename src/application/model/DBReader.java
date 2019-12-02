@@ -32,7 +32,7 @@ public class DBReader {
      */
     public void loadData() {
 
-        this.file = new File("src/application/model/DE-EN.txt");
+        this.file = new File("src/application/model/Chapters/DE-EN.txt");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -48,7 +48,7 @@ public class DBReader {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("src/application/model/DE-EN.txt nicht gefunden");
+            System.out.println("src/application/model/Chapters/DE-EN.txt nicht gefunden");
         } catch (IOException e) {
             e.printStackTrace();
         }
