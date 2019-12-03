@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 
-<BorderPane prefHeight="250.0" prefWidth="450.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.Controller.NewAccountController">
+<BorderPane prefHeight="250.0" prefWidth="450.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.NewAccountController">
    <bottom>
       <ButtonBar prefWidth="251.0" BorderPane.alignment="CENTER">
         <buttons>
