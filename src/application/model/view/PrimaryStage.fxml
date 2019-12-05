@@ -93,7 +93,7 @@
                   <Image url="@img/Login.png" />
                </image>
             </ImageView>
-            <Label fx:id="user" layoutX="382.0" layoutY="18.0" prefHeight="21.0" prefWidth="95.0" text="User" />
+            <Label fx:id="userName" layoutX="382.0" layoutY="18.0" prefHeight="21.0" prefWidth="95.0" text="User" />
 
             </children>
         </Pane>
