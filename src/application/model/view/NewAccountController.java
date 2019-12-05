@@ -57,8 +57,8 @@ public class NewAccountController {
 
             saveRecord(userNameField,passwordField,filepath);
 
-           // login.window.close();
-           // dialogStage.close();
+           Login.closeCreateNewAccountStage();
+
         }
     }
 
@@ -104,8 +104,8 @@ public class NewAccountController {
      */
     @FXML
     private void handleCancel() {
-        //login.window.close();
-        //dialogStage.close();
+
+        Login.closeCreateNewAccountStage();
     }
 
 

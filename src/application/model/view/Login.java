@@ -5,13 +5,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.application.model.MainApplication;
-import java.awt.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -25,6 +26,7 @@ public class Login extends Application {
     @FXML
     private PasswordField password;
     public String filepath = "src/application/model/Users.txt";
+    public static Stage stage;
 
     private static Scanner x;
 
@@ -65,7 +67,7 @@ public class Login extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewAccount.fxml"));
             Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
+            stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Create a new User- Account");
             stage.setScene(new Scene(root1));
@@ -102,6 +104,10 @@ public class Login extends Application {
             e.printStackTrace();
         }
 
+    }
+
+    public static void closeCreateNewAccountStage(){
+        stage.close();
     }
 }
 

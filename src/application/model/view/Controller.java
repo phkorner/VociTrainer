@@ -22,6 +22,7 @@ public class Controller {
     public Label course;
     private DBReader Woerterbuch;
     public static Stage stage;
+    public Label userName;
 
     //constructor
     public Controller() {
@@ -79,6 +80,7 @@ public class Controller {
     public static void closeLogin(){
         stage.close();
     }
+
 }
 
 
