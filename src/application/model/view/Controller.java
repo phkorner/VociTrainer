@@ -21,6 +21,7 @@ public class Controller {
     public Button proposal4;
     public Label course;
     private DBReader Woerterbuch;
+    public static Stage stage;
 
     //constructor
     public Controller() {
@@ -51,7 +52,7 @@ public class Controller {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
             Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
+            stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Please login...");
             stage.setScene(new Scene(root1));
@@ -73,6 +74,10 @@ public class Controller {
 
     public void close(){
         MainApplication.close();
+    }
+
+    public static void closeLogin(){
+        stage.close();
     }
 }
 

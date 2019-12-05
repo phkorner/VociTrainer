@@ -94,7 +94,7 @@ public class Login extends Application {
                     found = true;
                 }
             }
-            x.close();
+            Controller.closeLogin();
             System.out.println("Login successfully!");
 
         }catch (Exception e){
