@@ -11,7 +11,7 @@ import javafx.stage.Window;
 
 public class MainApplication extends Application {
 
-    private Stage primaryStage;
+    private static Stage primaryStage;
     private AnchorPane rootLayout;
     private AnchorPane login;
 
@@ -75,6 +75,10 @@ public class MainApplication extends Application {
      */
     public void fileUploadwithSelection (){
         return;
+    }
+
+    public static void close(){
+        primaryStage.close();
     }
 
 }

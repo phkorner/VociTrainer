@@ -58,6 +58,7 @@
                             <items>
                                 <MenuItem mnemonicParsing="false" onAction="#loaddata" text="Load" />
                                 <MenuItem mnemonicParsing="false" onAction="#savedata" text="Save" />
+                        <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" styleClass="menu-item" text="Edit">

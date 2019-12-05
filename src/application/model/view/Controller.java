@@ -10,6 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.application.model.DBReader;
 import src.application.model.FileSave;
+import src.application.model.MainApplication;
 
 public class Controller {
 
@@ -69,7 +70,12 @@ public class Controller {
     public void savedata(){
         FileSave.fileSave();
     }
+
+    public void close(){
+        MainApplication.close();
+    }
 }
+
 
 
 
