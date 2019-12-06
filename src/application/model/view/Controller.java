@@ -13,6 +13,7 @@ import src.application.model.FileSave;
 import src.application.model.MainApplication;
 import src.application.model.Database;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -25,7 +26,6 @@ public class Controller implements Observer {
     public Button proposal4;
     public Label course;
     public Label word;
-    private DBReader Woerterbuch;
     public static Stage stage;
     public static Label userName;
 
@@ -35,38 +35,25 @@ public class Controller implements Observer {
 
     @FXML
     private void initialize() {
-        this.Woerterbuch = new DBReader();
-        course.setText(Woerterbuch.getFilename());
 
         //register as observer for database
         Database.getDBReader().addObserver(this);
+
+        course.setText(Database.getDBReader().getFilename());
 
     }
 
     public void handleclick(){
 
-        String[] verteiler = Database.getDBReader().evaluate();
-        proposal1.setText(verteiler[0]);
-        proposal2.setText(verteiler[1]);
-        proposal3.setText(verteiler[2]);
-        proposal4.setText(verteiler[3]);
-
-        word.setText(Database.getDBReader().getWord());
+        ArrayList<String> verteiler = Database.getDBReader().evaluate();
+        proposal1.setText(verteiler.get(0));
+        proposal2.setText(verteiler.get(1));
+        proposal3.setText(verteiler.get(2));
+        proposal4.setText(verteiler.get(3));
+        word.setText(verteiler.get(4));
 
     }
-/**
-    public void handleclick2(){
-        proposal2.setText(Woerterbuch.getWrongAnswer1());
-    }
 
-    public void handleclick3(){
-        proposal3.setText(Woerterbuch.getWrongAnswer2());
-    }
-
-    public void handleclick4(){
-        proposal4.setText(Woerterbuch.getWrongAnswer3());
-    }
-*/
     public void handleclick5()  {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));

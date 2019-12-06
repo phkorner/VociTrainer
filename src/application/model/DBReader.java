@@ -63,7 +63,7 @@ public class DBReader extends Observable {
     /*
      * evaluation tbd is observed
      */
-    public String[] evaluate() {
+    public ArrayList<String> evaluate() {
 
         //new set of question and answers generated
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
@@ -72,15 +72,17 @@ public class DBReader extends Observable {
         this.wrongAnswer2 = words.get((int) (Math.random() * (words.size() + 1)));
         this.wrongAnswer3 = words.get((int) (Math.random() * (words.size() + 1)));
 
-        //shuffle the entries
+        //shuffle the entries and add correct word at index 4
         String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
         List<String> shuffleList = Arrays.asList(shuffleArray);
         Collections.shuffle(shuffleList);
+        ArrayList<String> shuffleArray2 = (ArrayList<String>) shuffleList;
+        shuffleArray2.add(4,word);
 
         this.setChanged();
         this.notifyObservers();
 
-        return shuffleArray;
+        return shuffleArray2;
     }
 
     /*
