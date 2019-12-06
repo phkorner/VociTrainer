@@ -42,7 +42,15 @@ public class Controller implements Observer {
 
     }
 
-    public void handleclick1(){ proposal1.setText(Database.getDBReader().getCorrectAnswer()); }
+    public void handleclick1(){
+
+        String[] verteiler = Database.getDBReader().evaluate();
+        proposal1.setText(verteiler[0]);
+        proposal2.setText(verteiler[1]);
+        proposal3.setText(verteiler[2]);
+        proposal4.setText(verteiler[3]);
+
+    }
 
     public void handleclick2(){
         proposal2.setText(Woerterbuch.getWrongAnswer1());

@@ -63,7 +63,7 @@ public class DBReader extends Observable {
     /*
      * evaluation tbd is observed
      */
-    public void evaluate() {
+    public String[] evaluate() {
 
         //new set of question and answers generated
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
@@ -72,15 +72,15 @@ public class DBReader extends Observable {
         this.wrongAnswer2 = words.get((int) (Math.random() * (words.size() + 1)));
         this.wrongAnswer3 = words.get((int) (Math.random() * (words.size() + 1)));
 
-        //todo shuffle
         //shuffle the entries
-        //String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
-        //List<String> shuffleList = Arrays.asList(shuffleArray);
-        //Collections.shuffle(shuffleList);
-        //observable method. this is the notification for observers
+        String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
+        List<String> shuffleList = Arrays.asList(shuffleArray);
+        Collections.shuffle(shuffleList);
 
         this.setChanged();
         this.notifyObservers();
+
+        return shuffleArray;
     }
 
     /*
