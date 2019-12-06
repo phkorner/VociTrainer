@@ -24,6 +24,7 @@ public class Controller implements Observer {
     public Button proposal3;
     public Button proposal4;
     public Label course;
+    public Label word;
     private DBReader Woerterbuch;
     public static Stage stage;
     public static Label userName;
