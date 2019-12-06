@@ -43,10 +43,10 @@
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                        <Button fx:id="proposal1" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick1" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal1" GridPane.rowIndex="2" />
-                        <Button fx:id="proposal2" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick2" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal2" GridPane.rowIndex="4" />
-                        <Button fx:id="proposal3" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick3" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal3" GridPane.rowIndex="6" />
-                        <Button fx:id="proposal4" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick4" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal4" GridPane.rowIndex="8" />
+                        <Button fx:id="proposal1" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal1" GridPane.rowIndex="2" />
+                        <Button fx:id="proposal2" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal2" GridPane.rowIndex="4" />
+                        <Button fx:id="proposal3" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal3" GridPane.rowIndex="6" />
+                        <Button fx:id="proposal4" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal4" GridPane.rowIndex="8" />
                     </children>
                 </GridPane>
                 <ProgressBar layoutX="300.0" layoutY="465.0" prefHeight="18.0" prefWidth="250.0" progress="0.0" />

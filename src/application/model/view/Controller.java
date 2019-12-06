@@ -42,7 +42,7 @@ public class Controller implements Observer {
 
     }
 
-    public void handleclick1(){
+    public void handleclick(){
 
         String[] verteiler = Database.getDBReader().evaluate();
         proposal1.setText(verteiler[0]);
@@ -51,7 +51,7 @@ public class Controller implements Observer {
         proposal4.setText(verteiler[3]);
 
     }
-
+/**
     public void handleclick2(){
         proposal2.setText(Woerterbuch.getWrongAnswer1());
     }
@@ -63,7 +63,7 @@ public class Controller implements Observer {
     public void handleclick4(){
         proposal4.setText(Woerterbuch.getWrongAnswer3());
     }
-
+*/
     public void handleclick5()  {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
