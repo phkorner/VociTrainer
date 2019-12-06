@@ -39,9 +39,10 @@ public class Controller implements Observer {
 
         //register as observer for database
         Database.getDBReader().addObserver(this);
+
     }
 
-    public void handleclick1(){ proposal1.setText(Woerterbuch.getCorrectAnswer()); }
+    public void handleclick1(){ proposal1.setText(Database.getDBReader().getCorrectAnswer()); }
 
     public void handleclick2(){
         proposal2.setText(Woerterbuch.getWrongAnswer1());
