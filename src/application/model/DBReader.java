@@ -3,7 +3,7 @@ package src.application.model;
 import java.io.*;
 import java.util.*;
 
-public class DBReader {
+public class DBReader extends Observable {
 
     private HashMap<String, String> map = new HashMap<String, String>(); // key-value-couple (used for right answers)
     private ArrayList<String> words = new ArrayList<String>(); // list of all translations (used for wrong answers)
@@ -61,14 +61,26 @@ public class DBReader {
     public String getWrongAnswer3() { return wrongAnswer3; }
 
     /*
-     * shuffle method
+     * evaluation tbd is observed
      */
-    public void shuffle() {
-        //todo
+    public void evaluate() {
+
+        //new set of question and answers generated
+        this.word = words.get((int) (Math.random() * (words.size() + 1)));
+        this.correctAnswer = map.get(word);
+        this.wrongAnswer1 = words.get((int) (Math.random() * (words.size() + 1)));
+        this.wrongAnswer2 = words.get((int) (Math.random() * (words.size() + 1)));
+        this.wrongAnswer3 = words.get((int) (Math.random() * (words.size() + 1)));
+
+        //todo shuffle
         //shuffle the entries
         //String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
         //List<String> shuffleList = Arrays.asList(shuffleArray);
         //Collections.shuffle(shuffleList);
+        //observable method. this is the notification for observers
+
+        this.setChanged();
+        this.notifyObservers();
     }
 
     /*
