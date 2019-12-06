@@ -51,6 +51,8 @@ public class Controller implements Observer {
         proposal3.setText(verteiler[2]);
         proposal4.setText(verteiler[3]);
 
+        word.setText(Database.getDBReader().getWord());
+
     }
 /**
     public void handleclick2(){
