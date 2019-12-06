@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -97,10 +97,22 @@ public class Login extends Application {
                 }
             }
             Controller.closeLogin();
-            System.out.println("Login successfully!");
+
+            // Show Login confirmation message.
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Login for user " + username.getText() + " successful");
+            alert.setHeaderText("Login successful");
+            alert.setContentText("Login successful");
+            alert.showAndWait();
 
         }catch (Exception e){
-            System.out.println("User or password is wrong.");
+            // Show the error message.
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Username or Passwod");
+            alert.setHeaderText("Invalid Username or Password - Please correct");
+            alert.setContentText("Invalid Username or Password - Please correct");
+
+            alert.showAndWait();
             e.printStackTrace();
         }
 

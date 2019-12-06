@@ -26,7 +26,7 @@ public class Controller implements Observer {
     public Label course;
     private DBReader Woerterbuch;
     public static Stage stage;
-    public Label userName;
+    public static Label userName;
 
     //constructor
     public Controller() {
@@ -86,6 +86,7 @@ public class Controller implements Observer {
 
     public static void closeLogin(){
         stage.close();
+        
     }
 
     @Override

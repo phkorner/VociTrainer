@@ -11,8 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import src.application.model.view.Login;
-
 import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -29,8 +27,6 @@ public class NewAccountController {
     private TextField repeatPasswordField;
 
 
-
-    private boolean okClicked = false;
     private Stage dialogStage = new Stage();
     public String filepath = "src/application/model/Users.txt";
 
@@ -74,7 +70,7 @@ public class NewAccountController {
 
             Stage alertbox = new Stage();
             alertbox.initModality(Modality.APPLICATION_MODAL);
-            alertbox.setTitle("Account-creatoin successful");
+            alertbox.setTitle("Account-creation successful");
             alertbox.setMinWidth(350);
             alertbox.setMinHeight(120);
 
