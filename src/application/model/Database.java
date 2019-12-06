@@ -11,4 +11,6 @@ public class Database {
         return Woerterbuch;
     }
 
+
+
 }

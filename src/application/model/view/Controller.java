@@ -11,8 +11,12 @@ import javafx.stage.Stage;
 import src.application.model.DBReader;
 import src.application.model.FileSave;
 import src.application.model.MainApplication;
+import src.application.model.Database;
 
-public class Controller {
+import java.util.Observable;
+import java.util.Observer;
+
+public class Controller implements Observer {
 
     // instance variables
     public Button proposal1;
@@ -33,6 +37,8 @@ public class Controller {
         this.Woerterbuch = new DBReader();
         course.setText(Woerterbuch.getFilename());
 
+        //register as observer for database
+        Database.getDBReader().addObserver(this);
     }
 
     public void handleclick1(){ proposal1.setText(Woerterbuch.getCorrectAnswer()); }
@@ -81,6 +87,10 @@ public class Controller {
         stage.close();
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
 }
 
 
