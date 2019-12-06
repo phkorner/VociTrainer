@@ -97,14 +97,12 @@ public class Login extends Application {
                 }
             }
             Controller.closeLogin();
-            System.out.println("Login successfully!");
 
             // Show Login confirmation message.
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Login for user " + username.getText() + " successful");
             alert.setHeaderText("Login successful");
             alert.setContentText("Login successful");
-
             alert.showAndWait();
 
         }catch (Exception e){
