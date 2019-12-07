@@ -19,7 +19,7 @@
 
 <AnchorPane stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.PrimaryController">
     <children>
-        <Pane styleClass="background" stylesheets="@Styles.css">
+        <Pane prefHeight="502.0" prefWidth="600.0" styleClass="background" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <GridPane layoutX="300.0" layoutY="139.0" stylesheets="@Styles.css">
                     <columnConstraints>
