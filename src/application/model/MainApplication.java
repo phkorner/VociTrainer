@@ -1,19 +1,19 @@
 package src.application.model;
 
 import java.io.IOException;
-import java.util.Observer;
 
 import javafx.application.Application;
-import javafx.scene.control.Button;
+import javafx.scene.Parent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Window;
 
 public class MainApplication extends Application {
 
     private static Stage primaryStage;
+    public static Stage loginStage;
     private AnchorPane rootLayout;
     private AnchorPane login;
 
@@ -81,6 +81,23 @@ public class MainApplication extends Application {
 
     public static void close(){
         primaryStage.close();
+    }
+
+
+    public static Stage loadLoginStage(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/Login.fxml"));
+            Parent root1 = fxmlLoader.load();
+            loginStage = new Stage();
+            loginStage.initModality(Modality.APPLICATION_MODAL);
+            loginStage.setTitle("Please login...");
+            loginStage.setScene(new Scene(root1));
+            loginStage.show();
+        }catch (Exception e){
+            System.out.println("Cannot start Login Page");
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

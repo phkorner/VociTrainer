@@ -34,7 +34,7 @@
         </rowConstraints>
          <children>
             <TextField fx:id="username" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <PasswordField fx:id="password" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <PasswordField fx:id="password" onKeyTyped="#enterClicked" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="User Name" GridPane.rowIndex="1" />
             <Label text="Password" GridPane.rowIndex="2" />
          </children>

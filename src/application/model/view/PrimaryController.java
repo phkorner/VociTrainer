@@ -54,19 +54,8 @@ public class PrimaryController implements Observer {
     }
 
     public void handleclick5()  {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
-            Parent root1 = fxmlLoader.load();
-            stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Please login...");
-            stage.setScene(new Scene(root1));
-            stage.show();
-        }catch (Exception e){
-            System.out.println("Cannot start Login Page");
-            e.printStackTrace();
-        }
-
+        Stage stage = new Stage();
+        stage = MainApplication.loadLoginStage();
     }
 
     public void loaddata(){
