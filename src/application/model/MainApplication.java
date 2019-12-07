@@ -1,6 +1,8 @@
 package src.application.model;
 
 import java.io.IOException;
+import java.util.Observer;
+
 import javafx.application.Application;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;

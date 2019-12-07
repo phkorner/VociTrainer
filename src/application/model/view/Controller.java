@@ -8,10 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import src.application.model.DBReader;
 import src.application.model.FileSave;
 import src.application.model.MainApplication;
-import src.application.model.Database;
+import src.application.model.DatabaseHandler;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -37,15 +36,15 @@ public class Controller implements Observer {
     private void initialize() {
 
         //register as observer for database
-        Database.getDBReader().addObserver(this);
+        DatabaseHandler.getDBReader().addObserver(this);
 
-        course.setText(Database.getDBReader().getFilename());
+        course.setText(DatabaseHandler.getDBReader().getFilename());
 
     }
 
     public void handleclick(){
 
-        ArrayList<String> verteiler = Database.getDBReader().evaluate();
+        ArrayList<String> verteiler = DatabaseHandler.getDBReader().evaluate();
         proposal1.setText(verteiler.get(0));
         proposal2.setText(verteiler.get(1));
         proposal3.setText(verteiler.get(2));

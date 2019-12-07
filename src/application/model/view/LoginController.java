@@ -15,10 +15,12 @@ import src.application.model.MainApplication;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Scanner;
 
 
-public class Login extends Application {
+public class LoginController implements Observer {
     public Stage window = new Stage();
     public AnchorPane rootLayout2;
     @FXML
@@ -30,6 +32,7 @@ public class Login extends Application {
 
     private static Scanner x;
 
+    /*
     @Override
     public void start(Stage window) {
 
@@ -44,6 +47,7 @@ public class Login extends Application {
             e.printStackTrace();
         }
     }
+    */
 
     public void initRootLayout2() {
         try {
@@ -78,6 +82,7 @@ public class Login extends Application {
         }
     }
 
+    //todo: move to Login.java file?
     public void verifyLogin()  {
 
         boolean found = false;
@@ -120,6 +125,11 @@ public class Login extends Application {
 
     public static void closeCreateNewAccountStage(){
         stage.close();
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 }
 

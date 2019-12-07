@@ -39,7 +39,7 @@ public class NewAccountController {
     }
 
     // Reference to the main application.
-    private Login login = new Login();
+    private LoginController loginController = new LoginController();
     
 
 
@@ -53,7 +53,7 @@ public class NewAccountController {
 
             saveRecord(userNameField,passwordField,filepath);
 
-           Login.closeCreateNewAccountStage();
+           LoginController.closeCreateNewAccountStage();
 
         }
     }
@@ -101,7 +101,7 @@ public class NewAccountController {
     @FXML
     private void handleCancel() {
 
-        Login.closeCreateNewAccountStage();
+        LoginController.closeCreateNewAccountStage();
     }
 
 
