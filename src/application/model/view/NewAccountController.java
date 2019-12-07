@@ -1,5 +1,6 @@
 package src.application.model.view;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,9 +9,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import src.application.model.MainApplication;
+
 import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -53,7 +58,7 @@ public class NewAccountController {
 
             saveRecord(userNameField,passwordField,filepath);
 
-           LoginController.closeCreateNewAccountStage();
+           MainApplication.closeCreateNewAccountStage();
 
         }
     }
@@ -101,7 +106,7 @@ public class NewAccountController {
     @FXML
     private void handleCancel() {
 
-        LoginController.closeCreateNewAccountStage();
+        MainApplication.closeCreateNewAccountStage();
     }
 
 
@@ -144,6 +149,17 @@ public class NewAccountController {
 
             return false;
         }
+    }
+
+    public void enterClicked() {
+        repeatPasswordField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    isInputValid();
+                }
+            }
+        });
     }
 }
 

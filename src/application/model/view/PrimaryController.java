@@ -19,14 +19,21 @@ import java.util.Observer;
 public class PrimaryController implements Observer {
 
     // instance variables
-    public Button proposal1;
-    public Button proposal2;
-    public Button proposal3;
-    public Button proposal4;
-    public Label course;
-    public Label word;
+    @FXML
+    private Button proposal1;
+    @FXML
+    private Button proposal2;
+    @FXML
+    private Button proposal3;
+    @FXML
+    private Button proposal4;
+    @FXML
+    private Label course;
+    @FXML
+    private Label word;
     public static Stage stage;
-    public static Label userName;
+    @FXML
+    private static Label userName;
 
     //constructor
     public PrimaryController() {
@@ -70,10 +77,6 @@ public class PrimaryController implements Observer {
         MainApplication.close();
     }
 
-    public static void closeLogin(){
-        stage.close();
-        
-    }
 
     @Override
     public void update(Observable o, Object arg) {

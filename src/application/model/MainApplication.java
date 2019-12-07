@@ -117,4 +117,12 @@ public class MainApplication extends Application {
         }
         return null;
     }
+
+    public static void closeLogin(){
+        loginStage.close();
+    }
+
+    public static void closeCreateNewAccountStage(){
+        newAccountStage.close();
+    }
 }
