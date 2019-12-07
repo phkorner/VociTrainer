@@ -28,7 +28,7 @@ public class ChangeAccountController {
     @FXML
     private void handleCancel() {
 
-       // MainApplication.closeCreateNewAccountStage();
+       MainApplication.closeChangeAccount();
     }
 
     @FXML

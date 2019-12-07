@@ -15,6 +15,7 @@ public class MainApplication extends Application {
     private static Stage primaryStage;
     private static Stage loginStage;
     private static Stage newAccountStage;
+    private static Stage changeAccount;
     private AnchorPane rootLayout;
     private AnchorPane login;
 
@@ -124,5 +125,9 @@ public class MainApplication extends Application {
 
     public static void closeCreateNewAccountStage(){
         newAccountStage.close();
+    }
+
+    public static void closeChangeAccount(){
+        changeAccount.close();
     }
 }
