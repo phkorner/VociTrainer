@@ -1,6 +1,7 @@
 package src.application.model.view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import src.application.model.MainApplication;
@@ -15,6 +16,10 @@ public class ChangeAccountController {
     private TextField newPassword;
     @FXML
     private TextField repeatOldPassword;
+    @FXML
+    private Button save;
+    @FXML
+    private Button cancel;
 
 
     /**

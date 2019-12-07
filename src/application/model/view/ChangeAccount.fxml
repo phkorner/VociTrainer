@@ -44,8 +44,8 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button mnemonicParsing="false" onMouseClicked="#handleSave" text="Save" />
-            <Button cancelButton="true" mnemonicParsing="false" onMouseClicked="#handleCancel" prefWidth="90.0" text="Cancel">
+          <Button fx:id="save" mnemonicParsing="false" onMouseClicked="#handleSave" text="Save" />
+            <Button fx:id="cancel" cancelButton="true" mnemonicParsing="false" onMouseClicked="#handleCancel" prefWidth="90.0" text="Cancel">
                <effect>
                   <ColorAdjust />
                </effect>
