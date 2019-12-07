@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Controller implements Observer {
+public class PrimaryController implements Observer {
 
     // instance variables
     public Button proposal1;
@@ -29,7 +29,7 @@ public class Controller implements Observer {
     public static Label userName;
 
     //constructor
-    public Controller() {
+    public PrimaryController() {
     }
 
     @FXML

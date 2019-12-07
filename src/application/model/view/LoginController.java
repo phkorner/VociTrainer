@@ -1,6 +1,5 @@
 package src.application.model.view;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -101,7 +100,7 @@ public class LoginController implements Observer {
                     found = true;
                 }
             }
-            Controller.closeLogin();
+            PrimaryController.closeLogin();
 
             // Show Login confirmation message.
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
