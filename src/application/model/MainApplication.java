@@ -13,7 +13,8 @@ import javafx.fxml.FXMLLoader;
 public class MainApplication extends Application {
 
     private static Stage primaryStage;
-    public static Stage loginStage;
+    private static Stage loginStage;
+    private static Stage newAccountStage;
     private AnchorPane rootLayout;
     private AnchorPane login;
 
@@ -100,4 +101,20 @@ public class MainApplication extends Application {
         return null;
     }
 
+
+    public static Stage loadnewAccountStage(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/NewAccount.fxml"));
+            Parent root1 = fxmlLoader.load();
+            newAccountStage = new Stage();
+            newAccountStage.initModality(Modality.APPLICATION_MODAL);
+            newAccountStage.setTitle("Create a new User- Account");
+            newAccountStage.setScene(new Scene(root1));
+            newAccountStage.show();
+        }catch (Exception e){
+            System.out.println("Cannot load Page");
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

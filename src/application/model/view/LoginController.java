@@ -31,7 +31,6 @@ public class LoginController implements Observer {
     private PasswordField password;
     public String filepath = "src/application/model/Users.txt";
     public static Stage stage;
-
     private static Scanner x;
 
     /*
@@ -70,18 +69,9 @@ public class LoginController implements Observer {
     }
 
     public void createNewAccount()  {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewAccount.fxml"));
-            Parent root1 = fxmlLoader.load();
-            stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Create a new User- Account");
-            stage.setScene(new Scene(root1));
-            stage.show();
-        }catch (Exception e){
-            System.out.println("Cannot load Page");
-            e.printStackTrace();
-        }
+        Stage stage = new Stage();
+        stage = MainApplication.loadnewAccountStage();
+        
     }
 
     //todo: move to Login.java file?
