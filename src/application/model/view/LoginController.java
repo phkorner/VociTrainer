@@ -2,21 +2,16 @@ package src.application.model.view;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+import src.application.model.LoginHandler;
 import src.application.model.MainApplication;
-
 import java.io.File;
-import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
@@ -26,8 +21,6 @@ public class LoginController implements Observer {
     @FXML
     private Stage window = new Stage();
     @FXML
-    private AnchorPane rootLayout2;
-    @FXML
     private TextField username;
     @FXML
     private PasswordField password;
@@ -35,6 +28,12 @@ public class LoginController implements Observer {
     public static Stage stage;
     private static Scanner x;
 
+    @FXML
+    public void initialize() {
+        //register as observer for Login
+        LoginHandler.getLogin().addObserver(this);
+
+    }
 
     public void createNewAccount()  {
         Stage stage = new Stage();

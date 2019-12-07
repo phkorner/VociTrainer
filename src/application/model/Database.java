@@ -66,13 +66,16 @@ public class Database extends Observable {
         this.wrongAnswer2 = words.get((int) (Math.random() * (words.size() + 1)));
         this.wrongAnswer3 = words.get((int) (Math.random() * (words.size() + 1)));
 
-        //shuffle the entries and add correct word at index 4
+        //convert to List and shuffle
         String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
         List<String> shuffleList = Arrays.asList(shuffleArray);
         Collections.shuffle(shuffleList);
-        ArrayList<String> shuffleArray2 = (ArrayList<String>) shuffleList;
-        shuffleArray2.add(4,word);
 
+        //convert back to array and add word
+        ArrayList<String> shuffleArray2 = new ArrayList(shuffleList);
+        shuffleArray2.add(word);
+
+        //notify observers
         this.setChanged();
         this.notifyObservers();
 
