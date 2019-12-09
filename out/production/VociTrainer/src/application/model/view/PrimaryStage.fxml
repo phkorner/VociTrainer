@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.PrimaryController">
+<AnchorPane stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.application.model.view.PrimaryController">
     <children>
         <Pane prefHeight="502.0" prefWidth="600.0" styleClass="background" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -69,8 +69,8 @@
                         </Menu>
                         <Menu mnemonicParsing="false" styleClass="menu-item" text="User-Account">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Login" />
-                        <MenuItem mnemonicParsing="false" text="Change" />
+                                <MenuItem mnemonicParsing="false" onAction="#handleclick5" text="Login" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleclick6" text="Change Password" />
                             </items>
                         </Menu>
                     </menus>

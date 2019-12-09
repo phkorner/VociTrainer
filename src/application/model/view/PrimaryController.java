@@ -35,19 +35,24 @@ public class PrimaryController implements Observer {
     @FXML
     private static Label userName;
 
-    //constructor
+    /**
+     * constructor
+     */
+
     public PrimaryController() {
     }
 
     @FXML
     private void initialize() {
-
         //register as observer for database
         DatabaseHandler.getDBReader().addObserver(this);
-
         course.setText(DatabaseHandler.getDBReader().getFilename());
-
     }
+
+    /**
+     * Called when the user clicks on one of the answer buttons. It checkes if the answer is correct and returns green (correct) or red (false).
+     * It also brings the next question to the screen.
+     */
 
     public void handleclick(){
 
@@ -60,10 +65,18 @@ public class PrimaryController implements Observer {
 
     }
 
+    /**
+     * Called when the user clicks on Login in the menue or on the Person icon in the top right corner.
+     */
+
     public void handleclick5()  {
         Stage stage = new Stage();
         stage = MainApplication.loadLoginStage();
     }
+
+    /**
+     * Called when the user clicks on Account - change password.
+     */
 
     public void handleclick6()  {
         Stage stage = new Stage();
