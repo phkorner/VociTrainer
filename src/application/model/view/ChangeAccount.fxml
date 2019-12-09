@@ -33,7 +33,7 @@
             <Label fx:id="username" styleClass="column-header" text="Username" GridPane.columnIndex="1" />
             <TextField fx:id="oldPassword" promptText="Old password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="newPassword" promptText="New password" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="repeatOldPassword" promptText="Repeat new password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="repeatNewPassword" promptText="Repeat new password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Old password" GridPane.rowIndex="2" />
          </children>
          <BorderPane.margin>

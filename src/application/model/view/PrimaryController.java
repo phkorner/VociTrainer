@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.application.model.FileSave;
+import src.application.model.LoginHandler;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
 
@@ -47,6 +48,7 @@ public class PrimaryController implements Observer {
         //register as observer for database
         DatabaseHandler.getDBReader().addObserver(this);
         course.setText(DatabaseHandler.getDBReader().getFilename());
+       // userName.setText(LoginHandler.getLogin().getUserLogin());
     }
 
     /**
