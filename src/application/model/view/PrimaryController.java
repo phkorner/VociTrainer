@@ -65,6 +65,11 @@ public class PrimaryController implements Observer {
         stage = MainApplication.loadLoginStage();
     }
 
+    public void handleclick6()  {
+        Stage stage = new Stage();
+        stage = MainApplication.loadChangeAccountStage();
+    }
+
     public void loaddata(){
         return;
     }
