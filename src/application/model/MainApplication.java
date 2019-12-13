@@ -15,6 +15,7 @@ public class MainApplication extends Application {
     private static Stage primaryStage;
     private static Stage loginStage;
     private static Stage newAccountStage;
+    private static Stage changeAccountStage;
     private AnchorPane rootLayout;
     private AnchorPane login;
 
@@ -118,11 +119,32 @@ public class MainApplication extends Application {
         return null;
     }
 
+
+    public static Stage loadChangeAccountStage(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/ChangeAccount.fxml"));
+            Parent root1 = fxmlLoader.load();
+            changeAccountStage= new Stage();
+            changeAccountStage.initModality(Modality.APPLICATION_MODAL);
+            changeAccountStage.setTitle("Change your password:");
+            changeAccountStage.setScene(new Scene(root1));
+            changeAccountStage.show();
+        }catch (Exception e){
+            System.out.println("Cannot load Page");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static void closeLogin(){
         loginStage.close();
     }
 
     public static void closeCreateNewAccountStage(){
         newAccountStage.close();
+    }
+
+    public static void closeChangeAccount(){
+        changeAccountStage.close();
     }
 }
