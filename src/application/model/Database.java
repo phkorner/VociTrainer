@@ -36,7 +36,7 @@ public class Database {
      */
     public void loadData() {
 
-        this.file = new File("src/application/model/Chapters/Food.txt");
+        this.file = new File("src/application/model/Chapters/Family.txt");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;

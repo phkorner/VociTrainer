@@ -16,6 +16,7 @@ public class MainApplication extends Application {
     private static Stage loginStage;
     private static Stage newAccountStage;
     private static Stage changeAccountStage;
+    private static Stage chapterStage;
     private AnchorPane rootLayout;
     private AnchorPane login;
 
@@ -150,6 +151,10 @@ public class MainApplication extends Application {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void closeChapterStage(){
+        chapterStage.close();
     }
 
     public static void closeLogin(){
