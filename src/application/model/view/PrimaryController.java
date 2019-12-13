@@ -48,9 +48,9 @@ public class PrimaryController {
         word.setText(verteiler.get(4));
     }
 
-    public void handleclick() {
+    public void handleclick1() {
 
-        //evaluate answer //todo: any button not just 1!
+        //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal1.getText())) {
             //todo: approval highlight. correct
             System.out.println("congrats! correct.");
@@ -66,10 +66,74 @@ public class PrimaryController {
         proposal3.setText(verteiler.get(2));
         proposal4.setText(verteiler.get(3));
         word.setText(verteiler.get(4));
+    }
 
+    public void handleclick2() {
+
+        //evaluate answer
+        if (DatabaseHandler.getDBReader().evaluateAnswer(proposal2.getText())) {
+            //todo: approval highlight. correct
+            System.out.println("congrats! correct.");
+        } else {
+            //todo: highlight the correct answer instead! wrong
+            System.out.println("that's wrong!");
+        }
+
+        //load new question
+        ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
+        proposal1.setText(verteiler.get(0));
+        proposal2.setText(verteiler.get(1));
+        proposal3.setText(verteiler.get(2));
+        proposal4.setText(verteiler.get(3));
+        word.setText(verteiler.get(4));
+    }
+
+    public void handleclick3() {
+
+        //evaluate answer
+        if (DatabaseHandler.getDBReader().evaluateAnswer(proposal3.getText())) {
+            //todo: approval highlight. correct
+            System.out.println("congrats! correct.");
+        } else {
+            //todo: highlight the correct answer instead! wrong
+            System.out.println("that's wrong!");
+        }
+
+        //load new question
+        ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
+        proposal1.setText(verteiler.get(0));
+        proposal2.setText(verteiler.get(1));
+        proposal3.setText(verteiler.get(2));
+        proposal4.setText(verteiler.get(3));
+        word.setText(verteiler.get(4));
+    }
+
+    public void handleclick4() {
+
+        //evaluate answer
+        if (DatabaseHandler.getDBReader().evaluateAnswer(proposal4.getText())) {
+            //todo: approval highlight. correct
+            System.out.println("congrats! correct.");
+        } else {
+            //todo: highlight the correct answer instead! wrong
+            System.out.println("that's wrong!");
+        }
+
+        //load new question
+        ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
+        proposal1.setText(verteiler.get(0));
+        proposal2.setText(verteiler.get(1));
+        proposal3.setText(verteiler.get(2));
+        proposal4.setText(verteiler.get(3));
+        word.setText(verteiler.get(4));
     }
 
     public void handleclick5()  {
+        Stage stage = new Stage();
+        stage = MainApplication.loadLoginStage();
+    }
+
+    public void handleclick6()  {
         Stage stage = new Stage();
         stage = MainApplication.loadLoginStage();
     }
