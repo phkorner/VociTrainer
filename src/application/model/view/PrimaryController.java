@@ -11,7 +11,6 @@ import src.application.model.FileSave;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class PrimaryController {
 
@@ -31,7 +30,7 @@ public class PrimaryController {
     public static Stage stage;
     @FXML
     private static Label userName;
-    private boolean correctAnswer = false;
+
 
 
     //constructor
@@ -58,7 +57,6 @@ public class PrimaryController {
 
         //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal1.getText())) {
-            correctAnswer = true;
             highlightCorrectAnswer(1);
         } else {
             highlightWrongAnswer(1);
@@ -73,7 +71,6 @@ public class PrimaryController {
 
         //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal2.getText())) {
-            correctAnswer = true;
             highlightCorrectAnswer(2);
         } else {
             highlightWrongAnswer(2);
@@ -86,7 +83,6 @@ public class PrimaryController {
 
         //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal3.getText())) {
-            correctAnswer = true;
             highlightCorrectAnswer(3);
         } else {
             highlightWrongAnswer(3);
@@ -99,7 +95,6 @@ public class PrimaryController {
 
         //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal4.getText())) {
-            correctAnswer = true;
             highlightCorrectAnswer(4);
         } else {
             highlightWrongAnswer(4);
@@ -172,21 +167,9 @@ public class PrimaryController {
         } else if (buttonId == 4) {
             proposal4.setStyle("-fx-background-color: #FF6633");
         }
-      /**  proposal1.setStyle("-fx-background-color: lightgrey");
-        proposal2.setStyle("-fx-background-color: lightgrey");
-        proposal3.setStyle("-fx-background-color: lightgrey");
-        proposal4.setStyle("-fx-background-color: lightgrey");
-*/
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     public void loadNewQuestion(){
-        delay();
         ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
         proposal1.setText(verteiler.get(0));
         proposal2.setText(verteiler.get(1));
@@ -197,7 +180,7 @@ public class PrimaryController {
 
     public void delay(){
         PauseTransition wait = new PauseTransition(Duration.seconds(4));
-        //wait.setOnFinished(event -> );
+        wait.setDuration(Duration.seconds(4));
         wait.play();
     }
 }
