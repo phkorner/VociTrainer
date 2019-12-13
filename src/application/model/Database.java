@@ -19,7 +19,6 @@ public class Database {
     // default constructor
     public Database() {
 
-        this.file = new File("src/application/model/Chapters/DE-EN.txt");
         loadData();
 
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
@@ -36,6 +35,8 @@ public class Database {
      * called by constructor
      */
     public void loadData() {
+
+        this.file = new File("src/application/model/Chapters/Food.txt");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
