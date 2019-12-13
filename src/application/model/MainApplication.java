@@ -136,6 +136,22 @@ public class MainApplication extends Application {
         return null;
     }
 
+    public static Stage  LoadChapterStage(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/Chapter.fxml"));
+            Parent root1 = fxmlLoader.load();
+            changeAccountStage= new Stage();
+            changeAccountStage.initModality(Modality.APPLICATION_MODAL);
+            changeAccountStage.setTitle("Please select Chapter:");
+            changeAccountStage.setScene(new Scene(root1));
+            changeAccountStage.show();
+        }catch (Exception e){
+            System.out.println("Cannot load Page");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static void closeLogin(){
         loginStage.close();
     }

@@ -30,6 +30,7 @@ public class PrimaryController {
     private static Label userName;
     private boolean correctAnswer = false;
 
+
     //constructor
     public PrimaryController() {
     }
@@ -117,6 +118,7 @@ public class PrimaryController {
             highlightWrongAnswer(4);
         }
 
+
         //load new question
         ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
         proposal1.setText(verteiler.get(0));
@@ -137,7 +139,8 @@ public class PrimaryController {
     }
 
     public void loaddata(){
-        return;
+        Stage stage = new Stage();
+        stage = MainApplication.LoadChapterStage();
     }
 
     public void savedata(){
@@ -148,7 +151,7 @@ public class PrimaryController {
         MainApplication.close();
     }
 
-    public void highlightCorrectAnswer(int buttonId) {
+    public void highlightCorrectAnswer(int buttonId)  {
 
         if (buttonId == 1) {
             proposal1.setStyle("-fx-background-color: #00CC00");
@@ -159,17 +162,18 @@ public class PrimaryController {
         } else if (buttonId == 4) {
             proposal4.setStyle("-fx-background-color: #00CC00");
         }
-
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       /**
         proposal1.setStyle("-fx-background-color: lightgrey");
         proposal2.setStyle("-fx-background-color: lightgrey");
         proposal3.setStyle("-fx-background-color: lightgrey");
         proposal4.setStyle("-fx-background-color: lightgrey");
-
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+ */
     }
 
     public void highlightWrongAnswer(int buttonId){
@@ -183,11 +187,11 @@ public class PrimaryController {
         } else if (buttonId == 4) {
             proposal4.setStyle("-fx-background-color: #FF6633");
         }
-        proposal1.setStyle("-fx-background-color: lightgrey");
+      /**  proposal1.setStyle("-fx-background-color: lightgrey");
         proposal2.setStyle("-fx-background-color: lightgrey");
         proposal3.setStyle("-fx-background-color: lightgrey");
         proposal4.setStyle("-fx-background-color: lightgrey");
-
+*/
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (Exception e) {
