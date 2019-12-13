@@ -16,8 +16,12 @@ public class Database {
     private String wrongAnswer2;
     private String wrongAnswer3;
 
+    // default constructor
     public Database() {
+
+        this.file = new File("src/application/model/Chapters/DE-EN.txt");
         loadData();
+
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
         this.correctAnswer = map.get(word);
         this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
@@ -26,13 +30,12 @@ public class Database {
 
     }
 
+
     /*
      * method to load map, words and answers from txt-file (database)
      * called by constructor
      */
     public void loadData() {
-
-        this.file = new File("src/application/model/Chapters/DE-EN.txt");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -49,17 +52,23 @@ public class Database {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("src/application/model/Chapters/DE-EN.txt nicht gefunden");
+            System.out.println("Datei nicht gefunden.");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /*
-     * set the correct chapter to learn (file path)
-     */
-    public void setFile(String fileName) {
+    public void NewChapter(String fileName) {
         this.file = new File("src/application/model/Chapters/" + fileName);
+        map.clear();
+        words.clear();
+        answers.clear();
+        loadData();
+        this.word = words.get((int) (Math.random() * (words.size() + 1)));
+        this.correctAnswer = map.get(word);
+        this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
+        this.wrongAnswer2 = answers.get((int) (Math.random() * (answers.size() + 1)));
+        this.wrongAnswer3 = answers.get((int) (Math.random() * (answers.size() + 1)));
     }
 
     /*
