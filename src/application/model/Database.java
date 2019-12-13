@@ -3,10 +3,12 @@ package src.application.model;
 import java.io.*;
 import java.util.*;
 
-public class Database extends Observable {
 
-    private HashMap<String, String> map = new HashMap<String, String>(); // key-value-couple (used for right answers)
-    private ArrayList<String> words = new ArrayList<String>(); // list of all translations (used for wrong answers)
+public class Database {
+
+    private HashMap<String, String> map = new HashMap<>(); // key-value-couple (used for right answers)
+    private ArrayList<String> answers = new ArrayList<>(); // list of all translations (used for wrong answers)
+    private ArrayList<String> words = new ArrayList<>(); // list of all question words (used for questions)
     private File file; // file read by DB reader
     private String word;
     private String correctAnswer;
@@ -14,21 +16,19 @@ public class Database extends Observable {
     private String wrongAnswer2;
     private String wrongAnswer3;
 
-    /*
-     * constructor to initialize the loading of vocabulary in txt-file.
-     */
     public Database() {
         loadData();
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
         this.correctAnswer = map.get(word);
-        this.wrongAnswer1 = words.get((int) (Math.random() * (words.size() + 1)));
-        this.wrongAnswer2 = words.get((int) (Math.random() * (words.size() + 1)));
-        this.wrongAnswer3 = words.get((int) (Math.random() * (words.size() + 1)));
+        this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
+        this.wrongAnswer2 = answers.get((int) (Math.random() * (answers.size() + 1)));
+        this.wrongAnswer3 = answers.get((int) (Math.random() * (answers.size() + 1)));
+
     }
 
     /*
-    this method loads the map (HashMap) and words (ArrayList) from the DE-EN.txt file into Object
-    it is called in the constructor
+     * method to load map, words and answers from txt-file (database)
+     * called by constructor
      */
     public void loadData() {
 
@@ -44,6 +44,7 @@ public class Database extends Observable {
                     String value = parts[1];
                     map.put(key, value); // building hashmap for pairing (translation)
                     words.add(parts[0]); // building arraylist of keys from hashmap to access randomly
+                    answers.add(parts[1]); // building arraylist of values from hashmap to access randomly
                 }
             }
 
@@ -55,16 +56,23 @@ public class Database extends Observable {
     }
 
     /*
-     * evaluation tbd is observed
+     * set the correct chapter to learn (file path)
      */
-    public ArrayList<String> evaluate() {
+    public void setFile(String fileName) {
+        this.file = new File("src/application/model/Chapters/" + fileName);
+    }
+
+    /*
+     * loads a new set of word, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3.
+     */
+    public ArrayList<String> loadNewQuestion() {
 
         //new set of question and answers generated
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
         this.correctAnswer = map.get(word);
-        this.wrongAnswer1 = words.get((int) (Math.random() * (words.size() + 1)));
-        this.wrongAnswer2 = words.get((int) (Math.random() * (words.size() + 1)));
-        this.wrongAnswer3 = words.get((int) (Math.random() * (words.size() + 1)));
+        this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
+        this.wrongAnswer2 = answers.get((int) (Math.random() * (answers.size() + 1)));
+        this.wrongAnswer3 = answers.get((int) (Math.random() * (answers.size() + 1)));
 
         //convert to List and shuffle
         String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
@@ -75,16 +83,20 @@ public class Database extends Observable {
         ArrayList<String> shuffleArray2 = new ArrayList(shuffleList);
         shuffleArray2.add(word);
 
-        //notify observers
-        this.setChanged();
-        this.notifyObservers();
-
         return shuffleArray2;
     }
 
     /*
-     * getter-method for current filename in use
+     * evaluates the answer given by user
      */
+    public boolean evaluateAnswer(String answerGiven) {
+        boolean decision = false;
+        if (answerGiven == this.correctAnswer) {
+            decision = true;
+        }
+        return decision;
+    }
+
     public String getFilename() {
         String filename = file.getName();
         return filename;

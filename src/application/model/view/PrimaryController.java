@@ -1,22 +1,15 @@
 package src.application.model.view;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.application.model.FileSave;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
-
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
 
-public class PrimaryController implements Observer {
+public class PrimaryController {
 
     // instance variables
     @FXML
@@ -39,19 +32,35 @@ public class PrimaryController implements Observer {
     public PrimaryController() {
     }
 
+    /*
+     * set up for first question (called automatically by FXML)
+     */
     @FXML
     private void initialize() {
 
-        //register as observer for database
-        DatabaseHandler.getDBReader().addObserver(this);
-
         course.setText(DatabaseHandler.getDBReader().getFilename());
 
+        ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
+        proposal1.setText(verteiler.get(0));
+        proposal2.setText(verteiler.get(1));
+        proposal3.setText(verteiler.get(2));
+        proposal4.setText(verteiler.get(3));
+        word.setText(verteiler.get(4));
     }
 
-    public void handleclick(){
+    public void handleclick() {
 
-        ArrayList<String> verteiler = DatabaseHandler.getDBReader().evaluate();
+        //evaluate answer //todo: any button not just 1!
+        if (DatabaseHandler.getDBReader().evaluateAnswer(proposal1.getText())) {
+            //todo: approval highlight. correct
+            System.out.println("congrats! correct.");
+        } else {
+            //todo: highlight the correct answer instead! wrong
+            System.out.println("that's wrong!");
+        }
+
+        //load new question
+        ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
         proposal1.setText(verteiler.get(0));
         proposal2.setText(verteiler.get(1));
         proposal3.setText(verteiler.get(2));
@@ -75,12 +84,6 @@ public class PrimaryController implements Observer {
 
     public void close(){
         MainApplication.close();
-    }
-
-
-    @Override
-    public void update(Observable o, Object arg) {
-
     }
 }
 
