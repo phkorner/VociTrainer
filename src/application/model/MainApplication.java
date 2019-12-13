@@ -141,11 +141,11 @@ public class MainApplication extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/Chapter.fxml"));
             Parent root1 = fxmlLoader.load();
-            changeAccountStage= new Stage();
-            changeAccountStage.initModality(Modality.APPLICATION_MODAL);
-            changeAccountStage.setTitle("Please select Chapter:");
-            changeAccountStage.setScene(new Scene(root1));
-            changeAccountStage.show();
+            chapterStage= new Stage();
+            chapterStage.initModality(Modality.APPLICATION_MODAL);
+            chapterStage.setTitle("Please select Chapter:");
+            chapterStage.setScene(new Scene(root1));
+            chapterStage.show();
         }catch (Exception e){
             System.out.println("Cannot load Page");
             e.printStackTrace();
