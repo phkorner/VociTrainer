@@ -59,7 +59,7 @@ public class Database {
         }
     }
 
-    public void NewChapter(String fileName) {
+    public void newChapter(String fileName) {
         this.file = new File("src/application/model/Chapters/" + fileName);
         map.clear();
         words.clear();

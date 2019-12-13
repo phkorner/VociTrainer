@@ -2,6 +2,8 @@ package src.application.model.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import src.application.model.DatabaseHandler;
+import src.application.model.MainApplication;
 
 import java.awt.*;
 
@@ -20,6 +22,9 @@ public class ChapterController {
 
 
     public void weatherClick(){
+
+        DatabaseHandler.getDBReader().newChapter("Weather.txt");
+        MainApplication.closeChapterStage();
 
     }
 
