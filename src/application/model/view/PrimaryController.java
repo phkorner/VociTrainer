@@ -150,6 +150,12 @@ public class PrimaryController {
 
     public void highlightCorrectAnswer(int buttonId) {
 
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         if (buttonId == 1) {
             proposal1.setStyle("-fx-background-color: #00CC00");
         } else if (buttonId == 2) {
@@ -160,22 +166,20 @@ public class PrimaryController {
             proposal4.setStyle("-fx-background-color: #00CC00");
         }
 
+        /*
         proposal1.setStyle("-fx-background-color: lightgrey");
         proposal2.setStyle("-fx-background-color: lightgrey");
         proposal3.setStyle("-fx-background-color: lightgrey");
         proposal4.setStyle("-fx-background-color: lightgrey");
+         */
 
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void highlightWrongAnswer(int buttonId){
 
         if (buttonId == 1) {
             proposal1.setStyle("-fx-background-color: #FF6633");
+
         } else if (buttonId == 2) {
             proposal2.setStyle("-fx-background-color: #FF6633");
         } else if (buttonId == 3) {
@@ -188,11 +192,7 @@ public class PrimaryController {
         proposal3.setStyle("-fx-background-color: lightgrey");
         proposal4.setStyle("-fx-background-color: lightgrey");
 
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
     }
 }
