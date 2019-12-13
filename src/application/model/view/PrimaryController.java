@@ -8,6 +8,7 @@ import src.application.model.FileSave;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class PrimaryController {
 
@@ -27,6 +28,7 @@ public class PrimaryController {
     public static Stage stage;
     @FXML
     private static Label userName;
+    private boolean correctAnswer = false;
 
     //constructor
     public PrimaryController() {
@@ -52,11 +54,10 @@ public class PrimaryController {
 
         //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal1.getText())) {
-            //todo: approval highlight. correct
-            System.out.println("congrats! correct.");
+            correctAnswer = true;
+            highlightCorrectAnswer(1);
         } else {
-            //todo: highlight the correct answer instead! wrong
-            System.out.println("that's wrong!");
+            highlightWrongAnswer(1);
         }
 
         //load new question
@@ -72,11 +73,10 @@ public class PrimaryController {
 
         //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal2.getText())) {
-            //todo: approval highlight. correct
-            System.out.println("congrats! correct.");
+            correctAnswer = true;
+            highlightCorrectAnswer(2);
         } else {
-            //todo: highlight the correct answer instead! wrong
-            System.out.println("that's wrong!");
+            highlightWrongAnswer(2);
         }
 
         //load new question
@@ -92,11 +92,10 @@ public class PrimaryController {
 
         //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal3.getText())) {
-            //todo: approval highlight. correct
-            System.out.println("congrats! correct.");
+            correctAnswer = true;
+            highlightCorrectAnswer(3);
         } else {
-            //todo: highlight the correct answer instead! wrong
-            System.out.println("that's wrong!");
+            highlightWrongAnswer(3);
         }
 
         //load new question
@@ -112,11 +111,10 @@ public class PrimaryController {
 
         //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal4.getText())) {
-            //todo: approval highlight. correct
-            System.out.println("congrats! correct.");
+            correctAnswer = true;
+            highlightCorrectAnswer(4);
         } else {
-            //todo: highlight the correct answer instead! wrong
-            System.out.println("that's wrong!");
+            highlightWrongAnswer(4);
         }
 
         //load new question
@@ -148,6 +146,51 @@ public class PrimaryController {
 
     public void close(){
         MainApplication.close();
+    }
+
+    public void highlightCorrectAnswer(int buttonId) {
+
+        if (buttonId == 1) {
+            proposal1.setStyle("-fx-background-color: #00CC00");
+        } else if (buttonId == 2) {
+            proposal2.setStyle("-fx-background-color: #00CC00");
+        } else if (buttonId == 3) {
+            proposal3.setStyle("-fx-background-color: #00CC00");
+        } else if (buttonId == 4) {
+            proposal4.setStyle("-fx-background-color: #00CC00");
+        }
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        proposal1.setStyle("-fx-background-color: lightgrey");
+        proposal2.setStyle("-fx-background-color: lightgrey");
+        proposal3.setStyle("-fx-background-color: lightgrey");
+        proposal4.setStyle("-fx-background-color: lightgrey");
+        
+    }
+
+    public void highlightWrongAnswer(int buttonId){
+
+        if (buttonId == 1) {
+            proposal1.setStyle("-fx-background-color: #FF6633");
+        } else if (buttonId == 2) {
+            proposal2.setStyle("-fx-background-color: #FF6633");
+        } else if (buttonId == 3) {
+            proposal3.setStyle("-fx-background-color: #FF6633");
+        } else if (buttonId == 4) {
+            proposal4.setStyle("-fx-background-color: #FF6633");
+        }
+        try {
+            Thread.sleep(3000);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
 
