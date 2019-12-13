@@ -159,18 +159,17 @@ public class PrimaryController {
         } else if (buttonId == 4) {
             proposal4.setStyle("-fx-background-color: #00CC00");
         }
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
 
         proposal1.setStyle("-fx-background-color: lightgrey");
         proposal2.setStyle("-fx-background-color: lightgrey");
         proposal3.setStyle("-fx-background-color: lightgrey");
         proposal4.setStyle("-fx-background-color: lightgrey");
-        
+
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void highlightWrongAnswer(int buttonId){
@@ -184,10 +183,14 @@ public class PrimaryController {
         } else if (buttonId == 4) {
             proposal4.setStyle("-fx-background-color: #FF6633");
         }
+        proposal1.setStyle("-fx-background-color: lightgrey");
+        proposal2.setStyle("-fx-background-color: lightgrey");
+        proposal3.setStyle("-fx-background-color: lightgrey");
+        proposal4.setStyle("-fx-background-color: lightgrey");
+
         try {
-            Thread.sleep(3000);
-        }
-        catch (Exception e){
+            TimeUnit.SECONDS.sleep(1);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
