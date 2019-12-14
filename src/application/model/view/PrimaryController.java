@@ -154,12 +154,7 @@ public class PrimaryController implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         course.setText(DatabaseHandler.getDBReader().getFilename());
-        ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
-        proposal1.setText(verteiler.get(0));
-        proposal2.setText(verteiler.get(1));
-        proposal3.setText(verteiler.get(2));
-        proposal4.setText(verteiler.get(3));
-        word.setText(verteiler.get(4));
+        loadNewQuestion();
     }
 }
 
