@@ -13,9 +13,6 @@ import javafx.fxml.FXMLLoader;
 public class MainApplication extends Application {
 
     private static Stage primaryStage;
-    private static Stage loginStage;
-    private static Stage newAccountStage;
-    private static Stage changeAccountStage;
     private static Stage chapterStage;
     private AnchorPane rootLayout;
     private AnchorPane login;
@@ -78,64 +75,11 @@ public class MainApplication extends Application {
     /*
      * tbd
      */
-    public void fileUploadwithSelection (){
-        return;
-    }
 
     public static void close(){
         primaryStage.close();
     }
 
-
-    public static Stage loadLoginStage(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/Login.fxml"));
-            Parent root1 = fxmlLoader.load();
-            loginStage = new Stage();
-            loginStage.initModality(Modality.APPLICATION_MODAL);
-            loginStage.setTitle("Please login...");
-            loginStage.setScene(new Scene(root1));
-            loginStage.show();
-        }catch (Exception e){
-            System.out.println("Cannot start Login Page");
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    public static Stage loadnewAccountStage(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/NewAccount.fxml"));
-            Parent root1 = fxmlLoader.load();
-            newAccountStage = new Stage();
-            newAccountStage.initModality(Modality.APPLICATION_MODAL);
-            newAccountStage.setTitle("Create a new User- Account");
-            newAccountStage.setScene(new Scene(root1));
-            newAccountStage.show();
-        }catch (Exception e){
-            System.out.println("Cannot load Page");
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    public static Stage loadChangeAccountStage(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/ChangeAccount.fxml"));
-            Parent root1 = fxmlLoader.load();
-            changeAccountStage= new Stage();
-            changeAccountStage.initModality(Modality.APPLICATION_MODAL);
-            changeAccountStage.setTitle("Change your password:");
-            changeAccountStage.setScene(new Scene(root1));
-            changeAccountStage.show();
-        }catch (Exception e){
-            System.out.println("Cannot load Page");
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     public static Stage  LoadChapterStage(){
         try {
@@ -157,15 +101,4 @@ public class MainApplication extends Application {
         chapterStage.close();
     }
 
-    public static void closeLogin(){
-        loginStage.close();
-    }
-
-    public static void closeCreateNewAccountStage(){
-        newAccountStage.close();
-    }
-
-    public static void closeChangeAccount(){
-        changeAccountStage.close();
-    }
 }

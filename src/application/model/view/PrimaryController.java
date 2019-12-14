@@ -24,12 +24,14 @@ public class PrimaryController {
     @FXML
     private Button proposal4;
     @FXML
+    private Button nextButton;
+    @FXML
     private Label course;
     @FXML
     private Label word;
     public static Stage stage;
-    @FXML
-    private static Label userName;
+    private String style;
+
 
 
 
@@ -61,9 +63,7 @@ public class PrimaryController {
         } else {
             highlightWrongAnswer(1);
         }
-        delay();
 
-        loadNewQuestion();
 
     }
 
@@ -75,8 +75,6 @@ public class PrimaryController {
         } else {
             highlightWrongAnswer(2);
         }
-        delay();
-        loadNewQuestion();
     }
 
     public void handleclick3() {
@@ -87,8 +85,6 @@ public class PrimaryController {
         } else {
             highlightWrongAnswer(3);
         }
-        delay();
-        loadNewQuestion();
     }
 
     public void handleclick4() {
@@ -99,28 +95,12 @@ public class PrimaryController {
         } else {
             highlightWrongAnswer(4);
         }
-
-        delay();
-        loadNewQuestion();
     }
 
-    public void handleclick5()  {
-        Stage stage = new Stage();
-        stage = MainApplication.loadLoginStage();
-    }
-
-    public void handleclick6()  {
-        Stage stage = new Stage();
-        stage = MainApplication.loadLoginStage();
-    }
 
     public void loaddata(){
         Stage stage = new Stage();
         stage = MainApplication.LoadChapterStage();
-    }
-
-    public void savedata(){
-        FileSave.fileSave();
     }
 
     public void close(){
@@ -128,31 +108,15 @@ public class PrimaryController {
     }
 
     public void highlightCorrectAnswer(int buttonId)  {
-
-           if (buttonId == 1) {
-            String style1 = proposal1.getStyle();
+        style = proposal1.getStyle();
+        if (buttonId == 1) {
             proposal1.setStyle("-fx-background-color: #00CC00");
-            PauseTransition wait1 = new PauseTransition(Duration.seconds(2));
-            wait1.setOnFinished(event -> proposal1.setStyle(style1));
-            wait1.play();
         } else if (buttonId == 2) {
-            String style2 = proposal2.getStyle();
             proposal2.setStyle("-fx-background-color: #00CC00");
-            PauseTransition wait2 = new PauseTransition(Duration.seconds(2));
-            wait2.setOnFinished(event -> proposal1.setStyle(style2));
-            wait2.play();
         } else if (buttonId == 3) {
-            String style3 = proposal3.getStyle();
             proposal3.setStyle("-fx-background-color: #00CC00");
-            PauseTransition wait3 = new PauseTransition(Duration.seconds(2));
-            wait3.setOnFinished(event -> proposal3.setStyle(style3));
-            wait3.play();
         } else if (buttonId == 4) {
-            String style4 = proposal4.getStyle();
             proposal4.setStyle("-fx-background-color: #00CC00");
-            PauseTransition wait4 = new PauseTransition(Duration.seconds(2));
-            wait4.setOnFinished(event -> proposal4.setStyle(style4));
-            wait4.play();
         }
     }
 
@@ -170,18 +134,16 @@ public class PrimaryController {
     }
 
     public void loadNewQuestion(){
+        proposal1.setStyle(style);
+        proposal2.setStyle(style);
+        proposal3.setStyle(style);
+        proposal4.setStyle(style);
         ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
         proposal1.setText(verteiler.get(0));
         proposal2.setText(verteiler.get(1));
         proposal3.setText(verteiler.get(2));
         proposal4.setText(verteiler.get(3));
         word.setText(verteiler.get(4));
-    }
-
-    public void delay(){
-        PauseTransition wait = new PauseTransition(Duration.seconds(4));
-        wait.setDuration(Duration.seconds(4));
-        wait.play();
     }
 }
 

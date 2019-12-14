@@ -27,6 +27,15 @@
     -fx-font-size: 11pt;
 }
 
+.button-nextQuestion {
+    -fx-background-color: #f5b55b;
+    -fx-border-color: white;
+    -fx-text-fill: black;
+    -fx-background-radius: 2;
+    -fx-text-alignment: center;
+    -fx-font-size: 11pt;
+}
+
 .button-question {
     -fx-text-fill: black;
     -fx-background-radius: 2;
