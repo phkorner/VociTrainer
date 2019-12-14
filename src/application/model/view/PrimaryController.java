@@ -69,8 +69,6 @@ public class PrimaryController implements Observer {
         } else {
             highlightWrongAnswer(1);
         }
-
-
     }
 
     //evaluate answer on button 2
@@ -98,6 +96,11 @@ public class PrimaryController implements Observer {
         } else {
             highlightWrongAnswer(4);
         }
+    }
+
+    //todo: write comment
+    public void handleclick5() {
+
     }
 
     //Loads a new chapter based on the selection of the user
