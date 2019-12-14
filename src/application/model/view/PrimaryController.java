@@ -24,6 +24,12 @@ public class PrimaryController implements Observer {
     @FXML
     private Button nextButton;
     @FXML
+    private Label ratio;
+    @FXML
+    private Label questions;
+    @FXML
+    private Label correctAnswers;
+    @FXML
     private Label course;
     @FXML
     private Label word;
