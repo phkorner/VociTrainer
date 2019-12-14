@@ -47,7 +47,7 @@
                         <Button fx:id="proposal2" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick2" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal2" GridPane.rowIndex="4" />
                         <Button fx:id="proposal3" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick3" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal3" GridPane.rowIndex="6" />
                         <Button fx:id="proposal4" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleclick4" prefHeight="30.0" prefWidth="250.0" styleClass="button-answer" text="Proposal4" GridPane.rowIndex="8" />
-                  <Button fx:id="nextButton" mnemonicParsing="false" onAction="#loadNewQuestion" prefHeight="30.0" prefWidth="250.0" styleClass="button-nextQuestion" text="&gt; next Question" GridPane.rowIndex="10" />
+                  <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleclick5" prefHeight="30.0" prefWidth="250.0" styleClass="button-nextQuestion" text="&gt; next Question" GridPane.rowIndex="10" />
                     </children>
                 </GridPane>
                 <Label alignment="CENTER_RIGHT" layoutX="226.0" layoutY="434.0" prefHeight="27.0" prefWidth="148.0" stylesheets="@Styles.css" text="# Questions:" />
