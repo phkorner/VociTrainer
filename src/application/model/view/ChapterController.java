@@ -5,8 +5,6 @@ import javafx.scene.control.Button;
 import src.application.model.DatabaseHandler;
 import src.application.model.MainApplication;
 
-import java.awt.*;
-
 public class ChapterController {
 
     @FXML
@@ -20,31 +18,28 @@ public class ChapterController {
     @FXML
     Button family;
 
-
     public void weatherClick(){
-
         DatabaseHandler.getDBReader().newChapter("Weather.txt");
-
         MainApplication.closeChapterStage();
-
     }
 
     public void sportsClick(){
-
+        DatabaseHandler.getDBReader().newChapter("Sports.txt");
+        MainApplication.closeChapterStage();
     }
 
     public void professionsClick(){
-
+        DatabaseHandler.getDBReader().newChapter("Professions.txt");
+        MainApplication.closeChapterStage();
     }
 
     public void foodClick(){
-
+        DatabaseHandler.getDBReader().newChapter("Food.txt");
+        MainApplication.closeChapterStage();
     }
 
     public void familyClick(){
-
+        DatabaseHandler.getDBReader().newChapter("Family.txt");
+        MainApplication.closeChapterStage();
     }
-
-
-
 }

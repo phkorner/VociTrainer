@@ -3,7 +3,6 @@ package src.application.model;
 import java.io.*;
 import java.util.*;
 
-
 public class Database {
 
     private HashMap<String, String> map = new HashMap<>(); // key-value-couple (used for right answers)
@@ -19,6 +18,7 @@ public class Database {
     // default constructor
     public Database() {
 
+        this.file = new File("src/application/model/Chapters/Family.txt");
         loadData();
 
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
@@ -35,8 +35,6 @@ public class Database {
      * called by constructor
      */
     public void loadData() {
-
-        this.file = new File("src/application/model/Chapters/Family.txt");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
