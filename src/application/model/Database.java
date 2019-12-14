@@ -3,7 +3,7 @@ package src.application.model;
 import java.io.*;
 import java.util.*;
 
-public class Database {
+public class Database extends Observable {
 
     private HashMap<String, String> map = new HashMap<>(); // key-value-couple (used for right answers)
     private ArrayList<String> answers = new ArrayList<>(); // list of all translations (used for wrong answers)
@@ -68,6 +68,9 @@ public class Database {
         this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
         this.wrongAnswer2 = answers.get((int) (Math.random() * (answers.size() + 1)));
         this.wrongAnswer3 = answers.get((int) (Math.random() * (answers.size() + 1)));
+
+        this.setChanged();
+        this.notifyObservers();
     }
 
     /*

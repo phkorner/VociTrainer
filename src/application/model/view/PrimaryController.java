@@ -7,8 +7,10 @@ import javafx.stage.Stage;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
-public class PrimaryController {
+public class PrimaryController implements Observer {
 
     // instance variables
     @FXML
@@ -31,6 +33,7 @@ public class PrimaryController {
 
     //constructor
     public PrimaryController() {
+        DatabaseHandler.getDBReader().addObserver(this);
     }
 
     /*
@@ -140,6 +143,17 @@ public class PrimaryController {
         proposal2.setStyle(style);
         proposal3.setStyle(style);
         proposal4.setStyle(style);
+        ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
+        proposal1.setText(verteiler.get(0));
+        proposal2.setText(verteiler.get(1));
+        proposal3.setText(verteiler.get(2));
+        proposal4.setText(verteiler.get(3));
+        word.setText(verteiler.get(4));
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        course.setText(DatabaseHandler.getDBReader().getFilename());
         ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
         proposal1.setText(verteiler.get(0));
         proposal2.setText(verteiler.get(1));
