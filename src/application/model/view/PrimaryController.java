@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -98,9 +100,20 @@ public class PrimaryController implements Observer {
         }
     }
 
-    //todo: write comment
+    //load new question and update progress counters (only if answer given)
     public void handleclick5() {
 
+        if (proposal1.getStyle() == "-fx-background-color: #00CC00" ||
+                proposal2.getStyle() == "-fx-background-color: #00CC00" ||
+                proposal3.getStyle() == "-fx-background-color: #00CC00" ||
+                proposal4.getStyle() == "-fx-background-color: #00CC00" ) {
+            this.intQuestions++;
+            this.dblRatio = intCorrectAnswers / intQuestions; //todo: ratio stimmt noch nicht
+            questions.setText(Integer.toString(intQuestions));
+            correctAnswers.setText(Integer.toString(intCorrectAnswers));
+            ratio.setText(Double.toString(dblRatio));
+            loadNewQuestion();
+        }
     }
 
     //Loads a new chapter based on the selection of the user
@@ -126,6 +139,7 @@ public class PrimaryController implements Observer {
         } else if (buttonId == 4) {
             proposal4.setStyle("-fx-background-color: #00CC00");
         }
+        this.intCorrectAnswers++; // update the correct answer integer for progress bar
     }
 
     /**
