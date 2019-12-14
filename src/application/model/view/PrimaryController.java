@@ -36,6 +36,9 @@ public class PrimaryController implements Observer {
     public static Stage stage;
     private String style;
 
+    private int intQuestions;
+    private int intCorrectAnswers;
+    private double dblRatio;
 
     //constructor
     public PrimaryController() {
@@ -49,6 +52,7 @@ public class PrimaryController implements Observer {
     private void initialize() {
 
         course.setText(DatabaseHandler.getDBReader().getFilename());
+        resetProgress();
 
         ArrayList<String> verteiler = DatabaseHandler.getDBReader().loadNewQuestion();
         proposal1.setText(verteiler.get(0));
@@ -155,6 +159,19 @@ public class PrimaryController implements Observer {
         proposal3.setText(verteiler.get(2));
         proposal4.setText(verteiler.get(3));
         word.setText(verteiler.get(4));
+    }
+
+    /*
+     * initial and reset of progress bar
+     * Labels: questions, correctAnswers, ratio
+     */
+    public void resetProgress() {
+        this.intQuestions = 0;
+        this.intCorrectAnswers = 0;
+        this.dblRatio = 0.0;
+        questions.setText("0");
+        correctAnswers.setText("0");
+        ratio.setText("n/a");
     }
 
     @Override
