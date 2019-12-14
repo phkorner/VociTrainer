@@ -108,7 +108,7 @@ public class PrimaryController implements Observer {
                 proposal3.getStyle() == "-fx-background-color: #00CC00" ||
                 proposal4.getStyle() == "-fx-background-color: #00CC00" ) {
             this.intQuestions++;
-            this.dblRatio = intCorrectAnswers / intQuestions; //todo: ratio stimmt noch nicht
+            this.dblRatio = intCorrectAnswers / intQuestions * 100; //todo: ratio stimmt noch nicht
             questions.setText(Integer.toString(intQuestions));
             correctAnswers.setText(Integer.toString(intCorrectAnswers));
             ratio.setText(Double.toString(dblRatio));
