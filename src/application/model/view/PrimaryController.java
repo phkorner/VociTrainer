@@ -131,6 +131,7 @@ public class PrimaryController {
         } else if (buttonId == 4) {
             proposal4.setStyle("-fx-background-color: #FF6633");
         }
+        //TODO: highligh correct answer
     }
 
     public void loadNewQuestion(){
