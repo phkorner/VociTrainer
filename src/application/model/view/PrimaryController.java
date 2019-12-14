@@ -1,13 +1,9 @@
 package src.application.model.view;
 
-import javafx.animation.PauseTransition;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import src.application.model.FileSave;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
 import java.util.ArrayList;
@@ -33,8 +29,6 @@ public class PrimaryController {
     private String style;
 
 
-
-
     //constructor
     public PrimaryController() {
     }
@@ -55,9 +49,8 @@ public class PrimaryController {
         word.setText(verteiler.get(4));
     }
 
+    //evaluate answer on button 1
     public void handleclick1() {
-
-        //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal1.getText())) {
             highlightCorrectAnswer(1);
         } else {
@@ -67,9 +60,8 @@ public class PrimaryController {
 
     }
 
+    //evaluate answer on button 2
     public void handleclick2() {
-
-        //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal2.getText())) {
             highlightCorrectAnswer(2);
         } else {
@@ -77,9 +69,8 @@ public class PrimaryController {
         }
     }
 
+    //evaluate answer on button 3
     public void handleclick3() {
-
-        //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal3.getText())) {
             highlightCorrectAnswer(3);
         } else {
@@ -87,9 +78,8 @@ public class PrimaryController {
         }
     }
 
+    //evaluate answer on button 4
     public void handleclick4() {
-
-        //evaluate answer
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal4.getText())) {
             highlightCorrectAnswer(4);
         } else {
@@ -97,16 +87,18 @@ public class PrimaryController {
         }
     }
 
-
+    //Loads a new chapter based on the selection of the user
     public void loaddata(){
         Stage stage = new Stage();
         stage = MainApplication.LoadChapterStage();
     }
 
+    //Closes the whole application
     public void close(){
         MainApplication.close();
     }
 
+    //Color change of the button clicked to green, if the answer is correct
     public void highlightCorrectAnswer(int buttonId)  {
         style = proposal1.getStyle();
         if (buttonId == 1) {
@@ -120,9 +112,11 @@ public class PrimaryController {
         }
     }
 
+    /**
+     * Color change of the button clicked to red, if the answer is correct and
+     * color change of the button which provides the correct answer
+     */
     public void highlightWrongAnswer(int buttonId){
-
-        //highlight the wrong answer chosen
         if (buttonId == 1) {
             proposal1.setStyle("-fx-background-color: #FF6633");
         } else if (buttonId == 2) {
@@ -140,6 +134,7 @@ public class PrimaryController {
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal4.getText())) { proposal4.setStyle("-fx-background-color: #00CC00"); }
     }
 
+    // Load a new question (pair of words) if the button "next question" is clicked
     public void loadNewQuestion(){
         proposal1.setStyle(style);
         proposal2.setStyle(style);
