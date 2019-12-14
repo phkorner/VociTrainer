@@ -122,6 +122,7 @@ public class PrimaryController {
 
     public void highlightWrongAnswer(int buttonId){
 
+        //highlight the wrong answer chosen
         if (buttonId == 1) {
             proposal1.setStyle("-fx-background-color: #FF6633");
         } else if (buttonId == 2) {
@@ -131,7 +132,12 @@ public class PrimaryController {
         } else if (buttonId == 4) {
             proposal4.setStyle("-fx-background-color: #FF6633");
         }
-        //TODO: highligh correct answer
+
+        //highlight the correct answer that has not(!) been chosen
+        if (DatabaseHandler.getDBReader().evaluateAnswer(proposal1.getText())) { proposal1.setStyle("-fx-background-color: #00CC00"); }
+        if (DatabaseHandler.getDBReader().evaluateAnswer(proposal2.getText())) { proposal2.setStyle("-fx-background-color: #00CC00"); }
+        if (DatabaseHandler.getDBReader().evaluateAnswer(proposal3.getText())) { proposal3.setStyle("-fx-background-color: #00CC00"); }
+        if (DatabaseHandler.getDBReader().evaluateAnswer(proposal4.getText())) { proposal4.setStyle("-fx-background-color: #00CC00"); }
     }
 
     public void loadNewQuestion(){

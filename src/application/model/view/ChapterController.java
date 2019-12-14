@@ -24,6 +24,7 @@ public class ChapterController {
     public void weatherClick(){
 
         DatabaseHandler.getDBReader().newChapter("Weather.txt");
+
         MainApplication.closeChapterStage();
 
     }
