@@ -21,30 +21,31 @@ public class ChapterController {
     Button family;
 
 
+    // loads a new chapter which has questions about weather
     public void weatherClick(){
 
         DatabaseHandler.getDBReader().newChapter("Weather.txt");
 
         MainApplication.closeChapterStage();
-
     }
 
+    // loads a new chapter which has questions about sports
     public void sportsClick(){
 
     }
 
+    // loads a new chapter which has questions about professions
     public void professionsClick(){
 
     }
 
+    // loads a new chapter which has questions about food
     public void foodClick(){
 
     }
 
+    // loads a new chapter which has questions about family and relationship
     public void familyClick(){
 
     }
-
-
-
 }
