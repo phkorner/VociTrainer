@@ -1,0 +1,53 @@
+Anfänger,beginner
+Anhänger,supporter
+Bahn,track
+Beifall,applause
+disqualifizieren,disqualify
+Eintrittskarte,ticket
+Elfmeter,Penalty
+Endspiel,final
+Erfolg,success
+Ergebnis,result
+Fan,fan
+Freistoß,free kick
+gewinnen,to win
+Golfplatz,golf course
+Meister,champion
+Meisterschaft,championship
+Niederlage,defeat
+Pause machen,to take a break
+Pfeife,whistle
+Preis,prize
+Preis,prize
+Regel,rule
+Reiter,rider
+Weltrekord,world record
+Satz,set
+Schiedsrichter,referee
+Schwimmbecken,pool
+Sieg,victory
+Sieger,winner
+Spiel,game
+Spieler,player
+Spielstand,score
+Stadion,stadium
+Start,start
+Startgeld,entry fee
+stattfinden,to take place
+Stoppuhr,stopwatch
+Strafstoß,penalty
+teilnehmen,to take part
+Teilnehmer,contestant
+Tor,goal
+Torhüter,goalkeeper
+Trainer,coach
+Turnhalle,gym
+Turnier,tournament
+Turnschuhe,trainers
+verlieren,to lose
+Verteidiger,defender
+Weltrekord,world record
+Wettkampf,competition
+Ziel,finish
+Ziellinie,finish line
+Zuschauer,spectator
