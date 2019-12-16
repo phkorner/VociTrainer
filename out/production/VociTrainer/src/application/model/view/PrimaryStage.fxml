@@ -77,9 +77,9 @@
                 <Label fx:id="course" layoutX="152.0" layoutY="90.0" prefHeight="21.0" prefWidth="230.0" text="CourseDescription" />
                 <Separator layoutY="421.0" prefHeight="6.0" prefWidth="600.0" />
             <Label alignment="CENTER_RIGHT" layoutX="422.0" layoutY="434.0" prefHeight="27.0" prefWidth="148.0" stylesheets="@Styles.css" text="\% Ratio:" />
-            <Label fx:id="correctAnswers" layoutX="14.0" layoutY="461.0" prefHeight="21.0" prefWidth="116.0" text="Label" />
-            <Label fx:id="questions" layoutX="258.0" layoutY="461.0" prefHeight="21.0" prefWidth="116.0" text="Label" />
-            <Label fx:id="ratio" layoutX="454.0" layoutY="461.0" prefHeight="21.0" prefWidth="116.0" text="Label" />
+            <Label fx:id="correctAnswers" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="461.0" prefHeight="21.0" prefWidth="116.0" text="Label" />
+            <Label fx:id="questions" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="258.0" layoutY="461.0" prefHeight="21.0" prefWidth="116.0" text="Label" textAlignment="JUSTIFY" />
+            <Label fx:id="ratio" alignment="CENTER_RIGHT" layoutX="454.0" layoutY="461.0" prefHeight="21.0" prefWidth="116.0" text="Label" />
 
             </children>
         </Pane>
