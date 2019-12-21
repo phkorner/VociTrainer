@@ -8,31 +8,27 @@ public class Database extends Observable {
     private HashMap<String, String> map = new HashMap<>(); // key-value-couple (used for right answers)
     private ArrayList<String> answers = new ArrayList<>(); // list of all translations (used for wrong answers)
     private ArrayList<String> words = new ArrayList<>(); // list of all question words (used for questions)
-    private File file; // file read by DB reader
+    private File file;
     private String word;
     private String correctAnswer;
     private String wrongAnswer1;
     private String wrongAnswer2;
     private String wrongAnswer3;
 
-    // default constructor
     public Database() {
-
         this.file = new File("src/application/model/Chapters/Family.txt");
         loadData();
-
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
         this.correctAnswer = map.get(word);
         this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
         this.wrongAnswer2 = answers.get((int) (Math.random() * (answers.size() + 1)));
         this.wrongAnswer3 = answers.get((int) (Math.random() * (answers.size() + 1)));
-
     }
 
 
-    /*
-     * method to load map, words and answers from txt-file (database)
-     * called by constructor
+    /**
+     * method to load map, words and answers from txt-file (database).
+     * called by constructor.
      */
     public void loadData() {
 
@@ -57,6 +53,11 @@ public class Database extends Observable {
         }
     }
 
+    /**
+     * is called when user chooses a new chapter from primary stage via chapter.
+     * clears current database and fills it again with the new vocabulary.
+     * @param fileName
+     */
     public void newChapter(String fileName) {
         this.file = new File("src/application/model/Chapters/" + fileName);
         map.clear();
@@ -73,12 +74,12 @@ public class Database extends Observable {
         this.notifyObservers();
     }
 
-    /*
+    /**
+     * called whenever a new question set is needed at frontend.
      * loads a new set of word, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3.
      */
     public ArrayList<String> loadNewQuestion() {
 
-        //new set of question and answers generated
         this.word = words.get((int) (Math.random() * (words.size() + 1)));
         this.correctAnswer = map.get(word);
         this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
@@ -97,7 +98,7 @@ public class Database extends Observable {
         return shuffleArray2;
     }
 
-    /*
+    /**
      * evaluates the answer given by user
      */
     public boolean evaluateAnswer(String answerGiven) {
@@ -108,8 +109,11 @@ public class Database extends Observable {
         return decision;
     }
 
+    /**
+     * required to display current chapter in primary stage. (getter).
+     * @return name of file
+     */
     public String getFilename() {
-        String filename = file.getName();
-        return filename;
+        return file.getName();
     }
 }

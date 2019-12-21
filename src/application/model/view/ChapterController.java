@@ -18,31 +18,46 @@ public class ChapterController {
     @FXML
     Button family;
 
-    // Loads new questions to the topic weather
+    /**
+     * Loads new vocabulary from database and return to primary stage.
+     * chapter: weather
+     */
     public void weatherClick(){
         DatabaseHandler.getDBReader().newChapter("Weather.txt");
         MainApplication.closeChapterStage();
     }
 
-    // Loads new questions to the topic sports
+    /**
+     * Loads new vocabulary from database and return to primary stage.
+     * chapter: sports
+     */
     public void sportsClick(){
         DatabaseHandler.getDBReader().newChapter("Sports.txt");
         MainApplication.closeChapterStage();
     }
 
-    // Loads new questions to the topic professions
+    /**
+     * Loads new vocabulary from database and return to primary stage.
+     * chapter: professions
+     */
     public void professionsClick(){
         DatabaseHandler.getDBReader().newChapter("Professions.txt");
         MainApplication.closeChapterStage();
     }
 
-    // Loads new questions to the topic food
+    /**
+     * Loads new vocabulary from database and return to primary stage.
+     * chapter: food
+     */
     public void foodClick(){
         DatabaseHandler.getDBReader().newChapter("Food.txt");
         MainApplication.closeChapterStage();
     }
 
-    // Loads new questions to the topic family
+    /**
+     * Loads new vocabulary from database and return to primary stage.
+     * chapter: family (= default!)
+     */
     public void familyClick(){
         DatabaseHandler.getDBReader().newChapter("Family.txt");
         MainApplication.closeChapterStage();

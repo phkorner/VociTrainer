@@ -6,14 +6,12 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
-
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 public class PrimaryController implements Observer {
 
-    // instance variables
     @FXML
     private Button proposal1;
     @FXML
@@ -22,8 +20,6 @@ public class PrimaryController implements Observer {
     private Button proposal3;
     @FXML
     private Button proposal4;
-    @FXML
-    private Button nextButton;
     @FXML
     private Label ratio;
     @FXML
@@ -34,19 +30,16 @@ public class PrimaryController implements Observer {
     private Label course;
     @FXML
     private Label word;
-    public static Stage stage;
     private String style;
-
     private int intQuestions;
     private int intCorrectAnswers;
     private int intRatio;
 
-    //constructor
     public PrimaryController() {
         DatabaseHandler.getDBReader().addObserver(this);
     }
 
-    /*
+    /**
      * set up for first question (called automatically by FXML)
      */
     @FXML
@@ -63,7 +56,9 @@ public class PrimaryController implements Observer {
         word.setText(verteiler.get(4));
     }
 
-    //evaluate answer on button 1
+    /**
+     * handle button click on answer button 1
+     */
     public void handleclick1() {
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal1.getText())) {
             highlightCorrectAnswer(1);
@@ -72,7 +67,9 @@ public class PrimaryController implements Observer {
         }
     }
 
-    //evaluate answer on button 2
+    /**
+     * handle button click on answer button 2
+     */
     public void handleclick2() {
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal2.getText())) {
             highlightCorrectAnswer(2);
@@ -81,7 +78,9 @@ public class PrimaryController implements Observer {
         }
     }
 
-    //evaluate answer on button 3
+    /**
+     * handle button click on answer button 3
+     */
     public void handleclick3() {
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal3.getText())) {
             highlightCorrectAnswer(3);
@@ -90,7 +89,9 @@ public class PrimaryController implements Observer {
         }
     }
 
-    //evaluate answer on button 4
+    /**
+     * handle button click on answer button 4
+     */
     public void handleclick4() {
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal4.getText())) {
             highlightCorrectAnswer(4);
@@ -99,35 +100,43 @@ public class PrimaryController implements Observer {
         }
     }
 
-    //load new question and update progress counters (only if answer given)
+    /**
+     * handles the button "next question".
+     * only does something when an answer has been given! (in that case: update progress & loadNewQuestion
+     */
     public void handleclick5() {
 
-        if (proposal1.getStyle() == "-fx-background-color: #00CC00" ||
-                proposal2.getStyle() == "-fx-background-color: #00CC00" ||
-                proposal3.getStyle() == "-fx-background-color: #00CC00" ||
-                proposal4.getStyle() == "-fx-background-color: #00CC00" ) {
+        if (proposal1.getStyle().equals("-fx-background-color: #00CC00") ||
+                proposal2.getStyle().equals("-fx-background-color: #00CC00") ||
+                proposal3.getStyle().equals("-fx-background-color: #00CC00") ||
+                proposal4.getStyle().equals("-fx-background-color: #00CC00") ) {
             this.intQuestions++;
-            this.intRatio = (int) (intCorrectAnswers * 100) / intQuestions;
+            this.intRatio = (intCorrectAnswers * 100) / intQuestions;
             questions.setText(Integer.toString(intQuestions));
             correctAnswers.setText(Integer.toString(intCorrectAnswers));
-            ratio.setText(Integer.toString(intRatio) + " %");
+            ratio.setText(intRatio + " %");
             loadNewQuestion();
         }
     }
 
-    //Loads a new chapter based on the selection of the user
+    /**
+     * Loads a new chapter based on the selection of the user
+     */
     public void loaddata(){
-        Stage stage = new Stage();
-        stage = MainApplication.LoadChapterStage();
+        MainApplication.LoadChapterStage();
     }
 
-    //Closes the whole application
+    /**
+     * Closes the whole application
+     */
     public void close(){
         MainApplication.close();
     }
 
-    //Color change of the button clicked to green, if the answer is correct
-    public void highlightCorrectAnswer(int buttonId)  {
+    /**
+     * Color change of the button clicked to green, if the answer is correct
+     */
+    private void highlightCorrectAnswer(int buttonId)  {
         style = proposal1.getStyle();
         if (buttonId == 1) {
             proposal1.setStyle("-fx-background-color: #00CC00");
@@ -145,7 +154,7 @@ public class PrimaryController implements Observer {
      * Color change of the button clicked to red, if the answer is correct and
      * color change of the button which provides the correct answer
      */
-    public void highlightWrongAnswer(int buttonId){
+    private void highlightWrongAnswer(int buttonId){
         if (buttonId == 1) {
             proposal1.setStyle("-fx-background-color: #FF6633");
         } else if (buttonId == 2) {
@@ -156,15 +165,16 @@ public class PrimaryController implements Observer {
             proposal4.setStyle("-fx-background-color: #FF6633");
         }
 
-        //highlight the correct answer that has not(!) been chosen
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal1.getText())) { proposal1.setStyle("-fx-background-color: #00CC00"); }
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal2.getText())) { proposal2.setStyle("-fx-background-color: #00CC00"); }
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal3.getText())) { proposal3.setStyle("-fx-background-color: #00CC00"); }
         if (DatabaseHandler.getDBReader().evaluateAnswer(proposal4.getText())) { proposal4.setStyle("-fx-background-color: #00CC00"); }
     }
 
-    // Load a new question (pair of words) if the button "next question" is clicked
-    public void loadNewQuestion(){
+    /**
+     * loads a new question from database (woerterbuch)
+     */
+    private void loadNewQuestion(){
         proposal1.setStyle(style);
         proposal2.setStyle(style);
         proposal3.setStyle(style);
@@ -177,9 +187,8 @@ public class PrimaryController implements Observer {
         word.setText(verteiler.get(4));
     }
 
-    /*
-     * initial and reset of progress bar
-     * Labels: questions, correctAnswers, ratio
+    /**
+     * initial and reset of progress bar and loads new question
      */
     public void resetProgress() {
         this.intQuestions = 0;
@@ -191,11 +200,15 @@ public class PrimaryController implements Observer {
         loadNewQuestion();
     }
 
+    /**
+     * called when a new chapter is loaded in the database (woerterbuch) to update primary stage.
+     * @param o
+     * @param arg
+     */
     @Override
     public void update(Observable o, Object arg) {
         course.setText(DatabaseHandler.getDBReader().getFilename());
-        loadNewQuestion();
-        resetProgress();
+        resetProgress(); //includes loadNewQuestion()
     }
 }
 

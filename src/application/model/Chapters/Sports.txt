@@ -18,7 +18,6 @@ Niederlage,defeat
 Pause machen,to take a break
 Pfeife,whistle
 Preis,prize
-Preis,prize
 Regel,rule
 Reiter,rider
 Weltrekord,world record

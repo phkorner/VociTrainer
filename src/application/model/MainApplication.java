@@ -1,7 +1,6 @@
 package src.application.model;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.stage.Modality;
@@ -15,18 +14,15 @@ public class MainApplication extends Application {
     private static Stage primaryStage;
     private static Stage chapterStage;
     private AnchorPane rootLayout;
-    private AnchorPane login;
 
-
-
-    /*
+    /**
      * main method to launch primary stage
      */
     public static void main(String [] args) {
         launch(args);
     }
 
-    /*
+    /**
      * required for javafx launch. starts and shows primaryStage
      */
     @Override
@@ -35,33 +31,25 @@ public class MainApplication extends Application {
         try {
             this.primaryStage = primaryStage;
             this.primaryStage.setTitle("VociTrainer");
-
-
-            // initialize the RootLayout and the Woerterbuch DBReader
             initRootLayout();
-
-            // primaryStage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    /*
+    /**
      * initializes the rootLayout from the VociTrainer.fxml file
      * built with SceneBuilder App
      * 
-     * notice: make sure to have the same javafx version in .fxml file as in IDE compiler!
+     * note: make sure to have the same javafx version in .fxml file as in IDE compiler!
      */
     public void initRootLayout() {
         try {
-            // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApplication.class.getResource("view/PrimaryStage.fxml"));
             rootLayout = loader.load();
 
-
-            // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
 
             primaryStage.setScene(scene);
@@ -72,14 +60,9 @@ public class MainApplication extends Application {
         }
     }
 
-    /*
-     * tbd
-     */
-
     public static void close(){
         primaryStage.close();
     }
-
 
     public static Stage  LoadChapterStage(){
         try {
@@ -100,5 +83,4 @@ public class MainApplication extends Application {
     public static void closeChapterStage(){
         chapterStage.close();
     }
-
 }
