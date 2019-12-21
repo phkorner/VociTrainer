@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import src.application.model.MainApplication;
 import src.application.model.DatabaseHandler;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -40,7 +39,7 @@ public class PrimaryController implements Observer {
 
     private int intQuestions;
     private int intCorrectAnswers;
-    private double dblRatio;
+    private int intRatio;
 
     //constructor
     public PrimaryController() {
@@ -108,10 +107,10 @@ public class PrimaryController implements Observer {
                 proposal3.getStyle() == "-fx-background-color: #00CC00" ||
                 proposal4.getStyle() == "-fx-background-color: #00CC00" ) {
             this.intQuestions++;
-            this.dblRatio = intCorrectAnswers / intQuestions * 100; //todo: ratio stimmt noch nicht
+            this.intRatio = (int) (intCorrectAnswers * 100) / intQuestions;
             questions.setText(Integer.toString(intQuestions));
             correctAnswers.setText(Integer.toString(intCorrectAnswers));
-            ratio.setText(Double.toString(dblRatio));
+            ratio.setText(Integer.toString(intRatio) + " %");
             loadNewQuestion();
         }
     }
@@ -185,16 +184,18 @@ public class PrimaryController implements Observer {
     public void resetProgress() {
         this.intQuestions = 0;
         this.intCorrectAnswers = 0;
-        this.dblRatio = 0.0;
+        this.intRatio = 0;
         questions.setText("0");
         correctAnswers.setText("0");
         ratio.setText("n/a");
+        loadNewQuestion();
     }
 
     @Override
     public void update(Observable o, Object arg) {
         course.setText(DatabaseHandler.getDBReader().getFilename());
         loadNewQuestion();
+        resetProgress();
     }
 }
 
