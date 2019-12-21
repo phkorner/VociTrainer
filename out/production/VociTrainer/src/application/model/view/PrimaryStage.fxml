@@ -67,7 +67,7 @@
                 <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" layoutX="16.0" layoutY="446.0" text="# correct answers:" />
                 <Circle fill="#f5b55b" layoutX="138.0" layoutY="291.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="button-question" />
                 <Label layoutX="14.0" layoutY="132.0" styleClass="column-header" stylesheets="@Styles.css" text="Your word is.." underline="true" />
-                <Label fx:id="word" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="246.0" prefHeight="90.0" prefWidth="178.0" styleClass="button-question" text="Word" wrapText="true" />
+                <Label fx:id="word" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="246.0" prefHeight="90.0" prefWidth="178.0" styleClass="button-question" text="Word" textAlignment="CENTER" wrapText="true" />
                 <Label layoutX="16.0" layoutY="87.0" styleClass="column-header" text="Your course: " />
                 <Label fx:id="course" layoutX="152.0" layoutY="90.0" prefHeight="21.0" prefWidth="230.0" text="CourseDescription" />
                 <Separator layoutY="433.0" prefHeight="6.0" prefWidth="600.0" />
