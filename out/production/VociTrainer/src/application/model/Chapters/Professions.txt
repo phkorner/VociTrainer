@@ -37,7 +37,6 @@ Maurer,bricklayer
 Mechaniker,mechanic
 Modell,(fashion) model
 Modedesigner,fashion designer
-Physiotherapeut/in,physiotherapist
 Pilot,pilot
 Polizist,police officer
 Reiseleiter,tour guide

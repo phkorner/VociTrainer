@@ -16,15 +16,10 @@ public class Database extends Observable {
     private String wrongAnswer3;
 
     public Database() {
-        this.file = new File("src/application/model/Chapters/Family.txt");
+        this.file = new File("src/application/model/Chapters/Professions.txt");
         loadData();
-        this.word = words.get((int) (Math.random() * (words.size() + 1)));
-        this.correctAnswer = map.get(word);
-        this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
-        this.wrongAnswer2 = answers.get((int) (Math.random() * (answers.size() + 1)));
-        this.wrongAnswer3 = answers.get((int) (Math.random() * (answers.size() + 1)));
+        fillQuestionSet();
     }
-
 
     /**
      * method to load map, words and answers from txt-file (database).
@@ -54,6 +49,22 @@ public class Database extends Observable {
     }
 
     /**
+     * private method used to fill the instance variables: word, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3
+     */
+    private void fillQuestionSet() {
+        //randomly select a new question and matching correctAnswer
+        this.word = words.get((int) (Math.random() * words.size()));
+        this.correctAnswer = map.get(word);
+        //making sure that no answer appears twice with do-while loop
+        do {
+            this.wrongAnswer1 = answers.get((int) (Math.random() * answers.size()));
+            this.wrongAnswer2 = answers.get((int) (Math.random() * answers.size()));
+            this.wrongAnswer3 = answers.get((int) (Math.random() * answers.size()));
+        } while (correctAnswer == wrongAnswer1 || correctAnswer == wrongAnswer2 || correctAnswer == wrongAnswer3
+                || wrongAnswer1 == wrongAnswer2 || wrongAnswer2 == wrongAnswer3 || wrongAnswer1 == wrongAnswer3);
+    }
+
+    /**
      * is called when user chooses a new chapter from primary stage via chapter.
      * clears current database and fills it again with the new vocabulary.
      * @param fileName
@@ -64,12 +75,7 @@ public class Database extends Observable {
         words.clear();
         answers.clear();
         loadData();
-        this.word = words.get((int) (Math.random() * (words.size() + 1)));
-        this.correctAnswer = map.get(word);
-        this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
-        this.wrongAnswer2 = answers.get((int) (Math.random() * (answers.size() + 1)));
-        this.wrongAnswer3 = answers.get((int) (Math.random() * (answers.size() + 1)));
-
+        fillQuestionSet();
         this.setChanged();
         this.notifyObservers();
     }
@@ -80,11 +86,7 @@ public class Database extends Observable {
      */
     public ArrayList<String> loadNewQuestion() {
 
-        this.word = words.get((int) (Math.random() * (words.size() + 1)));
-        this.correctAnswer = map.get(word);
-        this.wrongAnswer1 = answers.get((int) (Math.random() * (answers.size() + 1)));
-        this.wrongAnswer2 = answers.get((int) (Math.random() * (answers.size() + 1)));
-        this.wrongAnswer3 = answers.get((int) (Math.random() * (answers.size() + 1)));
+        fillQuestionSet();
 
         //convert to List and shuffle
         String[] shuffleArray = {correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3};
@@ -116,4 +118,11 @@ public class Database extends Observable {
     public String getFilename() {
         return file.getName();
     }
+
+    public ArrayList<String> getWords() {
+        return words;
+    }
+
+    public ArrayList<String> getAnswers() { return answers; }
+
 }

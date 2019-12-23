@@ -210,6 +210,11 @@ public class PrimaryController implements Observer {
         course.setText(DatabaseHandler.getDBReader().getFilename());
         resetProgress(); //includes loadNewQuestion()
     }
+
+    //getter methods required for testing
+    public int getIntQuestions() { return intQuestions; }
+    public int getIntCorrectAnswers() { return intCorrectAnswers; }
+    public int getIntRatio() { return intRatio; }
 }
 
 

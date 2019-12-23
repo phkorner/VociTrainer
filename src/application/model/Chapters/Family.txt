@@ -32,9 +32,7 @@ Tante,aunt
 Tochter,daughter
 Urgroßeltern,great-grandparents
 Vater,father
-Vati,dad
 Verlobte,fiancée
-Verlobter,fiancé
 Zwilling,twin
 Zwillingsbruder,twin-brother
 adoptieren,to adopt
@@ -56,7 +54,7 @@ Pflegekind,foster child
 sich verlieben,to fall in love
 verheiratet sein,to be married
 verlobt sein,to be engaged
-Verwandter,relative, relation
+Verwandter,relative
 Vorfahre,ancestor
 Vormund,guardian
 Waise,orphan
